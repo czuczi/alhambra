@@ -63,6 +63,18 @@ public class Login {
 	public String getLoginText() {
 		return loginText;
 	}
+
+	public void setLoginText(String loginText) {
+		this.loginText = loginText;
+	}
+
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
+	}
 	
 	
 }
