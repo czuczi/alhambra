@@ -49,7 +49,7 @@ public class RoomManagerPage extends JFrame {
 	private JLabel lblSzobaLista;
 	private JSeparator separator_1;
 	private JList listRoom;
-	private JButton btnNewButton;
+	private JButton buttonCsatlakozas;
 	
 	private int maxFerohely;
 
@@ -224,7 +224,7 @@ public class RoomManagerPage extends JFrame {
 		JButton buttonKijelentkezes = new JButton("Kijelentkezés");
 		buttonKijelentkezes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				client.sendMessage("logout;roomManagerPage", client.getOs());
+				client.sendMessage("logout;RoomManagerPage", client.getOs());
 			}
 		});
 		buttonKijelentkezes.setBounds(445, 335, 123, 23);
@@ -248,9 +248,17 @@ public class RoomManagerPage extends JFrame {
 		contentPane.add(scrollpane);
 
 		
-		btnNewButton = new JButton("Csatlakozás");
-		btnNewButton.setBounds(10, 333, 109, 27);
-		contentPane.add(btnNewButton);
+		buttonCsatlakozas = new JButton("Csatlakozás");
+		buttonCsatlakozas.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				String roomName = (String) listRoom.getModel().getElementAt(listRoom.getSelectedIndex());
+				client.sendMessage("connectRoom;RoomManagerPage;" + roomName, client.getOs());
+			}
+		});
+		buttonCsatlakozas.setBounds(10, 333, 109, 27);
+		contentPane.add(buttonCsatlakozas);
 		
 		
 	}
