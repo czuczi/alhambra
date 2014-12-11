@@ -27,6 +27,7 @@ public class Client {
 	private String serverRequest;
 	
 	private List<String> roomList;
+	private List<String> playerListInRoom;
 
 	public void sendMessage(String message, DataOutputStream os) {
 		try {
@@ -111,9 +112,15 @@ public class Client {
 					break;
 					
 				case "showRoomPage":
-					if(elements[1].equals("RoomManagerPage")){
+					if(elements[1].equals("RoomManagerPage")){							//JOIN ROOM SUCCESS
 						roomManagerPage.getFrame().setVisible(false);
 						roomManagerPage.getFrame().dispose();
+					}
+					client.playerListInRoom = new ArrayList<>();	//jatekoslista init
+					if(elements.length > 2){
+						for(int i=2; i<elements.length; i++){
+							client.playerListInRoom.add(elements[i]);
+						}
 					}
 					roomPage = new RoomPage(client);
 					break;
@@ -153,6 +160,14 @@ public class Client {
 
 	public void setRoomList(List<String> roomList) {
 		this.roomList = roomList;
+	}
+
+	public List<String> getPlayerListInRoom() {
+		return playerListInRoom;
+	}
+
+	public void setPlayerListInRoom(List<String> playerListInRoom) {
+		this.playerListInRoom = playerListInRoom;
 	}
 	
 	
