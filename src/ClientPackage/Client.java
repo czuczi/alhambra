@@ -118,6 +118,10 @@ public class Client {
 					roomPage = new RoomPage(client);
 					break;
 					
+				case "showGameTablePage":
+					//TODO
+					break;
+					
 				default:
 					shouldBreak = true;
 					break;

@@ -254,7 +254,7 @@ public class RoomManagerPage extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				String roomName = (String) listRoom.getModel().getElementAt(listRoom.getSelectedIndex());
-				client.sendMessage("connectRoom;RoomManagerPage;" + roomName, client.getOs());
+				client.sendMessage("joinRoom;RoomManagerPage;" + roomName, client.getOs());
 			}
 		});
 		buttonCsatlakozas.setBounds(10, 333, 109, 27);
