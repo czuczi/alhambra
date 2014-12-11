@@ -76,7 +76,7 @@ public class Client {
 				switch (client.serverRequest) {
 				case "showLoginPage":													
 					if(elements[1].equals("login")){									//LOGIN FAILED
-						JOptionPane.showMessageDialog(null, "User name is already in use!");
+						JOptionPane.showMessageDialog(null, "Már van ilyen felahsználó!");
 					} else{																//LOGOUT
 						System.out.println("logout success");
 						roomManagerPage.getFrame().setVisible(false);
@@ -90,7 +90,11 @@ public class Client {
 						login.getFrame().dispose();
 					} else{
 						if(elements[1].equals("RoomManagerPage")){						//CREATE NEW ROOM FAILED  OR JOIN ROOM FAILED
-							JOptionPane.showMessageDialog(null, "Room name is already in use!");
+							if(elements[2].equals("joinRoom")) {
+								JOptionPane.showMessageDialog(null, "A szoba megtelt!");
+								break;
+							}
+							JOptionPane.showMessageDialog(null, "A név foglalt!");
 							break;
 						} else{															//LEAVE ROOM
 							
