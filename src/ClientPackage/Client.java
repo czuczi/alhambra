@@ -54,7 +54,7 @@ public class Client {
 		Client client = new Client();
 
 		try {
-			serverSocket = new Socket("localhost", 9993);
+			serverSocket = new Socket("localhost", 9992);
 			try {
 				client.is = serverSocket.getInputStream();
 				client.bf = new BufferedReader(new InputStreamReader(client.is));
