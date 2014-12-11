@@ -6,6 +6,9 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+
+import ClientPackage.Client;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -14,8 +17,10 @@ public class Login {
 	private JFrame frame;
 	private JTextField loginField;
 	private String loginText = null;
+	private Client client;
 
-	public Login() {	
+	public Login(Client aktClient) {
+		client = aktClient;
 		initialize();
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -33,16 +38,19 @@ public class Login {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize() { 
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JButton btnLogin = new JButton("Login");
+		JButton btnLogin = new JButton("Login");									//LOGIN BUTTON
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				loginText = loginField.getText();
+				if(!loginField.getText().isEmpty()){
+					client.sendMessage("login;login;" + loginField.getText(), client.getOs());
+					
+				}
 			}
 		});
 		btnLogin.setBounds(315, 110, 89, 23);
