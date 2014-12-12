@@ -98,7 +98,10 @@ public class Client {
 							JOptionPane.showMessageDialog(null, "A név foglalt!");
 							break;
 						} else{															//LEAVE ROOM
-							
+							if(elements[1].equals("RoomPage")){
+								roomPage.getFrame().setVisible(false);
+								roomPage.getFrame().dispose();
+							}
 						}
 																						
 					}

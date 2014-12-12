@@ -2,6 +2,8 @@ package View;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 
 import javax.swing.JFrame;
@@ -67,9 +69,17 @@ public class RoomPage extends JFrame {
 		scrollPane.setBounds(10, 48, 217, 203);
 		contentPane.add(scrollPane);
 		
-		JButton btnNewButton = new JButton("Szoba elhagyása");
-		btnNewButton.setBounds(277, 228, 147, 23);
-		contentPane.add(btnNewButton);
+		JButton buttonSzobaElhagyasa = new JButton("Szoba elhagyása");
+		buttonSzobaElhagyasa.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				client.sendMessage("leaveRoom;RoomPage", client.getOs());
+				
+			}
+		});
+		buttonSzobaElhagyasa.setBounds(277, 228, 147, 23);
+		contentPane.add(buttonSzobaElhagyasa);
 		
 		JSeparator separator = new JSeparator();
 		separator.setBounds(10, 30, 414, 2);
@@ -83,4 +93,10 @@ public class RoomPage extends JFrame {
 		}
 		jListPlayers.setModel(modell);
 	}
+
+	public JFrame getFrame() {
+		return frame;
+	}
+	
+	
 }
