@@ -19,7 +19,8 @@ import View.RoomManagerPage;
 import View.RoomPage;
 
 public class Client {
-
+	
+	private Socket serverSocket;
 	private DataOutputStream os = null;
 	private InputStream is = null;
 	private BufferedReader bf = null;
@@ -44,22 +45,28 @@ public class Client {
 		try {
 			serverMessage = bf.readLine();
 		} catch (IOException e) {
-			e.printStackTrace();
+			try {
+				serverSocket.close();
+				is.close();
+				bf.close();
+				os.close();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
 		}
 
 	}
 
 	public static void main(String[] args) {
 
-		Socket serverSocket = null;
 		Client client = new Client();
 
 		try {
-			serverSocket = new Socket("localhost", 9993);
+			client.serverSocket = new Socket("localhost", 9999);
 			try {
-				client.is = serverSocket.getInputStream();
+				client.is = client.serverSocket.getInputStream();
 				client.bf = new BufferedReader(new InputStreamReader(client.is));
-				client.os = new DataOutputStream(serverSocket.getOutputStream());
+				client.os = new DataOutputStream(client.serverSocket.getOutputStream());
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
