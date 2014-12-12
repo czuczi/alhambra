@@ -27,6 +27,7 @@ public class Client {
 	private String serverRequest;
 	
 	private List<String> roomList;
+	private List<String> playerListInRoom;
 
 	public void sendMessage(String message, DataOutputStream os) {
 		try {
@@ -54,7 +55,7 @@ public class Client {
 		Client client = new Client();
 
 		try {
-			serverSocket = new Socket("localhost", 9992);
+			serverSocket = new Socket("localhost", 9993);
 			try {
 				client.is = serverSocket.getInputStream();
 				client.bf = new BufferedReader(new InputStreamReader(client.is));
@@ -68,7 +69,7 @@ public class Client {
 			boolean shouldBreak = false;
 			
 			while (true) {
-				System.out.println("kliens várakozik üzenetre: "+client.serverMessage);
+	//			System.out.println("kliens várakozik üzenetre: "+client.serverMessage);
 				client.recieveMessage();
 				System.out.println("kliens üzenetet kapott a szervertől: "+client.serverMessage);
 				String[] elements = client.serverMessage.split(";");
@@ -111,9 +112,29 @@ public class Client {
 					break;
 					
 				case "showRoomPage":
-					if(elements[1].equals("RoomManagerPage")){
+					if(elements[1].equals("RoomManagerPage")){							//JOIN ROOM SUCCESS
 						roomManagerPage.getFrame().setVisible(false);
 						roomManagerPage.getFrame().dispose();
+					} else{
+						if(elements[1].equals("RoomPage")){								//SZOBÁBAN LÉVŐKNEK ÜZENETSZÓRÁS ÉRKEZIK
+							client.playerListInRoom = new ArrayList<>();	//jatekoslista firssítés
+							if(elements.length > 2){
+								for(int i=2; i<elements.length; i++){
+									client.playerListInRoom.add(elements[i]);
+								}
+							}
+							System.out.println(client.playerListInRoom.size());
+							roomPage.roomListBeallito(client.playerListInRoom);
+							roomPage.revalidate();
+							roomPage.repaint();
+							break;
+						}
+					}
+					client.playerListInRoom = new ArrayList<>();	//jatekoslista init
+					if(elements.length > 2){
+						for(int i=2; i<elements.length; i++){
+							client.playerListInRoom.add(elements[i]);
+						}
 					}
 					roomPage = new RoomPage(client);
 					break;
@@ -157,6 +178,14 @@ public class Client {
 
 	public void setRoomList(List<String> roomList) {
 		this.roomList = roomList;
+	}
+
+	public List<String> getPlayerListInRoom() {
+		return playerListInRoom;
+	}
+
+	public void setPlayerListInRoom(List<String> playerListInRoom) {
+		this.playerListInRoom = playerListInRoom;
 	}
 	
 	

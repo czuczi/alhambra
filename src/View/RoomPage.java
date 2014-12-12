@@ -2,21 +2,26 @@ package View;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import ClientPackage.Client;
+
+import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JButton;
+import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 
 public class RoomPage extends JFrame {
 
 	private JPanel contentPane;
 	private JFrame frame;
+	private JList jListPlayers;
 	
 	private Client client;
 
@@ -42,28 +47,40 @@ public class RoomPage extends JFrame {
 	 */
 	public void initialize() {
 		frame = new JFrame();
+		frame.setTitle("Room");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setBounds(100, 100, 450, 300);
 		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
+		frame.setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblCsatlakozottJtkosok = new JLabel("Csatlakozott játékosok");
 		lblCsatlakozottJtkosok.setBounds(10, 11, 131, 14);
 		contentPane.add(lblCsatlakozottJtkosok);
 		
-		JList list = new JList();
-		list.setBounds(195, 48, -185, 203);
-		contentPane.add(list);
+		jListPlayers = new JList();
+		jListPlayers.setBounds(10, 48, 217, 203);
+		roomListBeallito(client.getPlayerListInRoom());
+		JScrollPane scrollPane = new JScrollPane(jListPlayers, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		scrollPane.setBounds(10, 48, 217, 203);
+		contentPane.add(scrollPane);
 		
 		JButton btnNewButton = new JButton("Szoba elhagyása");
-		btnNewButton.setBounds(302, 228, 122, 23);
+		btnNewButton.setBounds(277, 228, 147, 23);
 		contentPane.add(btnNewButton);
 		
 		JSeparator separator = new JSeparator();
 		separator.setBounds(10, 30, 414, 2);
 		contentPane.add(separator);
+	}
+	
+	public void roomListBeallito(List<String> playerNames){
+		DefaultListModel<String> modell = new DefaultListModel<>();
+		for(String name : playerNames){
+			modell.addElement(name);
+		}
+		jListPlayers.setModel(modell);
 	}
 }
