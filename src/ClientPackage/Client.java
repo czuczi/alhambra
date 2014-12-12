@@ -124,7 +124,7 @@ public class Client {
 								}
 							}
 							System.out.println(client.playerListInRoom.size());
-							roomPage.roomListBeallito(client.playerListInRoom);
+							roomPage.playerListBeallito(client.playerListInRoom);
 							roomPage.revalidate();
 							roomPage.repaint();
 							break;
@@ -141,6 +141,13 @@ public class Client {
 					
 				case "showGameTablePage":
 					//TODO
+					break;
+					
+				case "refreshRoomList":
+					client.roomList.add(elements[1]);
+					roomManagerPage.roomListBeallito(client.roomList);
+					roomManagerPage.revalidate();
+					roomManagerPage.repaint();
 					break;
 					
 				default:

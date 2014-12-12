@@ -62,7 +62,7 @@ public class RoomPage extends JFrame {
 		
 		jListPlayers = new JList();
 		jListPlayers.setBounds(10, 48, 217, 203);
-		roomListBeallito(client.getPlayerListInRoom());
+		playerListBeallito(client.getPlayerListInRoom());
 		JScrollPane scrollPane = new JScrollPane(jListPlayers, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		scrollPane.setBounds(10, 48, 217, 203);
 		contentPane.add(scrollPane);
@@ -76,7 +76,7 @@ public class RoomPage extends JFrame {
 		contentPane.add(separator);
 	}
 	
-	public void roomListBeallito(List<String> playerNames){
+	public void playerListBeallito(List<String> playerNames){
 		DefaultListModel<String> modell = new DefaultListModel<>();
 		for(String name : playerNames){
 			modell.addElement(name);
