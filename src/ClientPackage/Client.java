@@ -154,7 +154,12 @@ public class Client {
 					break;
 					
 				case "refreshRoomList":
-					client.roomList.add(elements[1]);
+					client.roomList.clear();
+					if(elements.length > 1){
+						for(int i = 1; i < elements.length; i++){
+							client.roomList.add(elements[i]);
+						}
+					}
 					roomManagerPage.roomListBeallito(client.roomList);
 					roomManagerPage.revalidate();
 					roomManagerPage.repaint();
