@@ -157,10 +157,7 @@ public class Client {
 						roomPage.getFrame().setVisible(false);
 						roomPage.getFrame().dispose();
 					}
-					
 					client.sendMessage("amIActPlayer", client.getOs());
-					
-			//		gameTablePage = new GameTablePage(client);
 					break;
 					
 				case "refreshRoomList":
@@ -183,6 +180,20 @@ public class Client {
 						gameTablePage.repaint();
 					}else{
 						gameTablePage.getFrame().setEnabled(false);
+						gameTablePage.revalidate();
+						gameTablePage.repaint();
+					}
+					break;
+					
+				case "yourMoneyCards":
+					List<String> myMoneyCardsPictures = new LinkedList<>();
+					String aktPic = "";
+					if(elements.length > 1){
+						for(int i=2; i<elements.length; i=i+2){
+							aktPic = "./resource/MoneyCards/"+elements[i]+"/"+elements[i+1]+"/image.jpg";
+							myMoneyCardsPictures.add(aktPic);
+						}
+						gameTablePage.playerMoneyCardBackgroundSetter(myMoneyCardsPictures);
 						gameTablePage.revalidate();
 						gameTablePage.repaint();
 					}

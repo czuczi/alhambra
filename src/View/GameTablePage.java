@@ -3,6 +3,8 @@ package View;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.util.LinkedList;
+import java.util.List;
 
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -20,6 +22,7 @@ public class GameTablePage extends JFrame{
 
 	private JFrame frame;
 	private Client client;
+	private List<JLabel> moneyCardJlabelList = new LinkedList<>();
 
 	public GameTablePage(Client aktClient) {
 		
@@ -59,84 +62,98 @@ public class GameTablePage extends JFrame{
 	    panelMoneyCards.add(moneyCard_1);
 	    moneyCard_1.setOpaque(true);
 	    moneyCard_1.setBackground(Color.RED);
+	    moneyCardJlabelList.add(moneyCard_1);
 	    
 	    JLabel moneyCard_2 = new JLabel();
 	    moneyCard_2.setOpaque(true);
 	    moneyCard_2.setBackground(Color.RED);
 	    moneyCard_2.setBounds(72, 11, 52, 88);
 	    panelMoneyCards.add(moneyCard_2);
+	    moneyCardJlabelList.add(moneyCard_2);
 	    
 	    JLabel moneyCard_3 = new JLabel();
 	    moneyCard_3.setOpaque(true);
 	    moneyCard_3.setBackground(Color.RED);
 	    moneyCard_3.setBounds(134, 11, 52, 88);
 	    panelMoneyCards.add(moneyCard_3);
+	    moneyCardJlabelList.add(moneyCard_3);
 	    
 	    JLabel moneyCard_4 = new JLabel();
 	    moneyCard_4.setOpaque(true);
 	    moneyCard_4.setBackground(Color.RED);
 	    moneyCard_4.setBounds(196, 11, 52, 88);
 	    panelMoneyCards.add(moneyCard_4);
+	    moneyCardJlabelList.add(moneyCard_4);
 	    
 	    JLabel moneyCard_5 = new JLabel();
 	    moneyCard_5.setOpaque(true);
 	    moneyCard_5.setBackground(Color.RED);
 	    moneyCard_5.setBounds(258, 11, 52, 88);
 	    panelMoneyCards.add(moneyCard_5);
+	    moneyCardJlabelList.add(moneyCard_5);
 	    
 	    JLabel moneyCard_6 = new JLabel();
 	    moneyCard_6.setOpaque(true);
 	    moneyCard_6.setBackground(Color.RED);
 	    moneyCard_6.setBounds(320, 11, 52, 88);
 	    panelMoneyCards.add(moneyCard_6);
+	    moneyCardJlabelList.add(moneyCard_6);
 	    
 	    JLabel moneyCard_7 = new JLabel();
 	    moneyCard_7.setOpaque(true);
 	    moneyCard_7.setBackground(Color.RED);
 	    moneyCard_7.setBounds(382, 11, 52, 88);
 	    panelMoneyCards.add(moneyCard_7);
+	    moneyCardJlabelList.add(moneyCard_7);
 	    
 	    JLabel moneyCard_8 = new JLabel();
 	    moneyCard_8.setOpaque(true);
 	    moneyCard_8.setBackground(Color.RED);
 	    moneyCard_8.setBounds(444, 11, 52, 88);
 	    panelMoneyCards.add(moneyCard_8);
+	    moneyCardJlabelList.add(moneyCard_8);
 	    
 	    JLabel moneyCard_9 = new JLabel();
 	    moneyCard_9.setOpaque(true);
 	    moneyCard_9.setBackground(Color.RED);
 	    moneyCard_9.setBounds(508, 11, 52, 88);
 	    panelMoneyCards.add(moneyCard_9);
+	    moneyCardJlabelList.add(moneyCard_9);
 	    
 	    JLabel moneyCard_10 = new JLabel();
 	    moneyCard_10.setOpaque(true);
 	    moneyCard_10.setBackground(Color.RED);
 	    moneyCard_10.setBounds(570, 11, 52, 88);
 	    panelMoneyCards.add(moneyCard_10);
+	    moneyCardJlabelList.add(moneyCard_10);
 	    
 	    JLabel moneyCard_11 = new JLabel();
 	    moneyCard_11.setOpaque(true);
 	    moneyCard_11.setBackground(Color.RED);
 	    moneyCard_11.setBounds(632, 11, 52, 88);
 	    panelMoneyCards.add(moneyCard_11);
+	    moneyCardJlabelList.add(moneyCard_11);
 
 	    JLabel moneyCard_12 = new JLabel();
 	    moneyCard_12.setOpaque(true);
 	    moneyCard_12.setBackground(Color.RED);
 	    moneyCard_12.setBounds(694, 11, 52, 88);
 	    panelMoneyCards.add(moneyCard_12);
+	    moneyCardJlabelList.add(moneyCard_12);
 	    
 	    JLabel moneyCard_13 = new JLabel();
 	    moneyCard_13.setOpaque(true);
 	    moneyCard_13.setBackground(Color.RED);
 	    moneyCard_13.setBounds(756, 11, 52, 88);
 	    panelMoneyCards.add(moneyCard_13);
+	    moneyCardJlabelList.add(moneyCard_13);
 
 	    JLabel moneyCard_14 = new JLabel();
 	    moneyCard_14.setOpaque(true);
 	    moneyCard_14.setBackground(Color.RED);
 	    moneyCard_14.setBounds(818, 11, 52, 88);
 	    panelMoneyCards.add(moneyCard_14);
+	    moneyCardJlabelList.add(moneyCard_14);
 	    
 	    JRadioButton radioButtonPlayerMoney_1 = new JRadioButton();
 	    radioButtonPlayerMoney_1.setOpaque(true);
@@ -465,5 +482,10 @@ public class GameTablePage extends JFrame{
 		return frame;
 	}
 	
+	public void playerMoneyCardBackgroundSetter(List<String> backGrounds){
+		for(int i=0; i<backGrounds.size(); i++){
+			moneyCardJlabelList.get(i).setIcon(new ImageIcon(backGrounds.get(i)));
+		}
+	}
 	
 }
