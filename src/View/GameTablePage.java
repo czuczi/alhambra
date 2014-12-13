@@ -38,7 +38,7 @@ public class GameTablePage {
 
 	private void initialize() {
 		
-	    JFrame frame = new JFrame("Alhambra");
+	    frame = new JFrame("Alhambra");
 	    frame.setBounds(200, 20, 1000, 600);
 	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    frame.getContentPane().setLayout(null);

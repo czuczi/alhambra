@@ -14,6 +14,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import View.GameTablePage;
 import View.Login;
 import View.RoomManagerPage;
 import View.RoomPage;
@@ -74,6 +75,7 @@ public class Client {
 			Login login = new Login(client);
 			RoomManagerPage roomManagerPage = null;
 			RoomPage roomPage = null;
+			GameTablePage gameTablePage = null;
 			boolean shouldBreak = false;
 			
 			while (true) {
@@ -151,7 +153,11 @@ public class Client {
 					break;
 					
 				case "showGameTablePage":
-					//TODO
+					if(elements[1].equals("RoomPage")) {
+						roomPage.getFrame().setVisible(false);
+						roomPage.getFrame().dispose();
+					}
+					gameTablePage = new GameTablePage(client);
 					break;
 					
 				case "refreshRoomList":
