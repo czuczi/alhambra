@@ -1,6 +1,8 @@
 package View;
 
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.util.LinkedList;
@@ -39,6 +41,23 @@ public class GameTablePage extends JFrame{
 				}
 			}
 		});
+	}
+	
+	public void setEnabledComponents(Object object, boolean state) {
+		if (object instanceof Container) {
+	        Container c = (Container)object;
+	        Component[] components = c.getComponents();
+	        for (Component component : components) {
+	        	setEnabledComponents(component, state);
+	            component.setEnabled(state);
+	        }
+	    }
+	    else {
+	        if (object instanceof Component) {
+	            Component component = (Component)object;
+	            component.setEnabled(state);
+	        }
+	    }
 	}
 
 	private void initialize() {
