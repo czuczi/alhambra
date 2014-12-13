@@ -407,7 +407,7 @@ public class GameTablePage {
 	    marketBuildingCard_1.setBounds(10, 11, 75, 75);
 	    panelBuildingMarket.add(marketBuildingCard_1);
 	    marketBuildingCard_1.setOpaque(true);
-	    marketBuildingCard_1.setIcon(new ImageIcon("./resource/kártya.jpg"));
+	    marketBuildingCard_1.setBackground(Color.GREEN);
 	    
 	    JLabel marketBuildingCard_2 = new JLabel();
 	    marketBuildingCard_2.setBounds(95, 11, 75, 75);
