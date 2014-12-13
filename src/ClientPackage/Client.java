@@ -175,11 +175,11 @@ public class Client {
 				case "isActPlayer":
 					gameTablePage = new GameTablePage(client);
 					if(elements[1].equals("yes")){
-						gameTablePage.getFrame().setEnabled(true);
+						gameTablePage.setEnabledComponents(gameTablePage.getFrame(), true);
 						gameTablePage.revalidate();
 						gameTablePage.repaint();
 					}else{
-						gameTablePage.getFrame().setEnabled(false);
+						gameTablePage.setEnabledComponents(gameTablePage.getFrame(), false);
 						gameTablePage.revalidate();
 						gameTablePage.repaint();
 					}
