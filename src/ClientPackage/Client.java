@@ -157,7 +157,10 @@ public class Client {
 						roomPage.getFrame().setVisible(false);
 						roomPage.getFrame().dispose();
 					}
-					gameTablePage = new GameTablePage(client);
+					
+					client.sendMessage("amIActPlayer", client.getOs());
+					
+			//		gameTablePage = new GameTablePage(client);
 					break;
 					
 				case "refreshRoomList":
@@ -170,6 +173,20 @@ public class Client {
 					roomManagerPage.roomListBeallito(client.roomList);
 					roomManagerPage.revalidate();
 					roomManagerPage.repaint();
+					break;
+					
+				case "isActPlayer":
+					gameTablePage = new GameTablePage(client);
+					if(elements[1].equals("yes")){
+						gameTablePage.getFrame().setEnabled(true);
+						gameTablePage.revalidate();
+						gameTablePage.repaint();
+					}else{
+						gameTablePage.getFrame().setEnabled(false);
+						gameTablePage.revalidate();
+						gameTablePage.repaint();
+					}
+					
 					break;
 					
 				default:

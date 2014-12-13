@@ -16,7 +16,7 @@ import javax.swing.JTable;
 
 import ClientPackage.Client;
 
-public class GameTablePage {
+public class GameTablePage extends JFrame{
 
 	private JFrame frame;
 	private Client client;
@@ -460,4 +460,10 @@ public class GameTablePage {
 	    frame.getContentPane().add(btnBuyBuildingCard);
 	      	    
 	}
+
+	public JFrame getFrame() {
+		return frame;
+	}
+	
+	
 }
