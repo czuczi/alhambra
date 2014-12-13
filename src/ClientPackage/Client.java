@@ -50,6 +50,7 @@ public class Client {
 				is.close();
 				bf.close();
 				os.close();
+				System.exit(0);
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
