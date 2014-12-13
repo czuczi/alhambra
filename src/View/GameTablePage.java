@@ -365,7 +365,7 @@ public class GameTablePage {
 	    	{
 	    		table[i][j] = new JLabel();
 	    		if(i==10 && j==10)
-	    			table[i][j].setBackground(Color.BLUE);
+	    			table[i][j].setIcon(new ImageIcon("./resource/buildingCards/start.jpg"));
 	    		else
 	    			table[i][j].setBackground(Color.GRAY);
 	    		table[i][j].setOpaque(true);
@@ -393,7 +393,7 @@ public class GameTablePage {
 	    JLabel helpLabel = new JLabel();
 	    helpLabel.setBounds(492, 186, 352, 180);
 	    frame.getContentPane().add(helpLabel);
-	    helpLabel.setIcon(new ImageIcon("./resource/ertektabla.jpg"));
+	    helpLabel.setIcon(new ImageIcon("./resource/evaluationCards/evaluationTable.jpg"));
 	    helpLabel.setOpaque(true);
 	        
 	    JPanel panelBuildingMarket = new JPanel();
