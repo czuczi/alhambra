@@ -169,8 +169,21 @@ public class GameTablePage extends JFrame{
 	    moneyCard_14.setIcon(new ImageIcon("./resource/moneyCards/backCard.jpg"));
 	    moneyCard_14.setBounds(823, 19, 52, 88);
 	    labelMoneyCards.add(moneyCard_14);
-	    moneyCard_1.setBackground(Color.RED);
+	    
 	    moneyCardJlabelList.add(moneyCard_1);
+	    moneyCardJlabelList.add(moneyCard_2);
+	    moneyCardJlabelList.add(moneyCard_3);
+	    moneyCardJlabelList.add(moneyCard_4);
+	    moneyCardJlabelList.add(moneyCard_5);
+	    moneyCardJlabelList.add(moneyCard_6);
+	    moneyCardJlabelList.add(moneyCard_7);
+	    moneyCardJlabelList.add(moneyCard_8);
+	    moneyCardJlabelList.add(moneyCard_9);
+	    moneyCardJlabelList.add(moneyCard_10);
+	    moneyCardJlabelList.add(moneyCard_11);
+	    moneyCardJlabelList.add(moneyCard_12);
+	    moneyCardJlabelList.add(moneyCard_13);
+	    moneyCardJlabelList.add(moneyCard_14);
 	    
 	    JRadioButton radioButtonPlayerMoney_1 = new JRadioButton();
 	    radioButtonPlayerMoney_1.setContentAreaFilled(false);
