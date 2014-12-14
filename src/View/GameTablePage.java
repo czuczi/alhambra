@@ -91,86 +91,99 @@ public class GameTablePage extends JFrame{
 	    labelMoneyCards.add(moneyCard_1);
 	    moneyCard_1.setOpaque(true);
 	    moneyCard_1.setIcon(new ImageIcon("./resource/moneyCards/backCard.jpg"));
+	    moneyCardJlabelList.add(moneyCard_1);
 	    
 	    JLabel moneyCard_2 = new JLabel();
 	    moneyCard_2.setOpaque(true);
 	    moneyCard_2.setIcon(new ImageIcon("./resource/moneyCards/backCard.jpg"));
 	    moneyCard_2.setBounds(77, 19, 52, 88);
 	    labelMoneyCards.add(moneyCard_2);
+	    moneyCardJlabelList.add(moneyCard_2);
 	    
 	    JLabel moneyCard_3 = new JLabel();
 	    moneyCard_3.setOpaque(true);
 	    moneyCard_3.setIcon(new ImageIcon("./resource/moneyCards/backCard.jpg"));
 	    moneyCard_3.setBounds(139, 19, 52, 88);
 	    labelMoneyCards.add(moneyCard_3);
+	    moneyCardJlabelList.add(moneyCard_3);
 	    
 	    JLabel moneyCard_4 = new JLabel();
 	    moneyCard_4.setOpaque(true);
 	    moneyCard_4.setIcon(new ImageIcon("./resource/moneyCards/backCard.jpg"));
 	    moneyCard_4.setBounds(201, 19, 52, 88);
 	    labelMoneyCards.add(moneyCard_4);
+	    moneyCardJlabelList.add(moneyCard_4);
 	    
 	    JLabel moneyCard_5 = new JLabel();
 	    moneyCard_5.setOpaque(true);
 	    moneyCard_5.setIcon(new ImageIcon("./resource/moneyCards/backCard.jpg"));
 	    moneyCard_5.setBounds(263, 19, 52, 88);
 	    labelMoneyCards.add(moneyCard_5);
+	    moneyCardJlabelList.add(moneyCard_5);
 	    
 	    JLabel moneyCard_6 = new JLabel();
 	    moneyCard_6.setOpaque(true);
 	    moneyCard_6.setIcon(new ImageIcon("./resource/moneyCards/backCard.jpg"));
 	    moneyCard_6.setBounds(325, 19, 52, 88);
 	    labelMoneyCards.add(moneyCard_6);
+	    moneyCardJlabelList.add(moneyCard_6);
 	    
 	    JLabel moneyCard_7 = new JLabel();
 	    moneyCard_7.setOpaque(true);
 	    moneyCard_7.setIcon(new ImageIcon("./resource/moneyCards/backCard.jpg"));
 	    moneyCard_7.setBounds(387, 19, 52, 88);
 	    labelMoneyCards.add(moneyCard_7);
+	    moneyCardJlabelList.add(moneyCard_7);
 	    
 	    JLabel moneyCard_8 = new JLabel();
 	    moneyCard_8.setOpaque(true);
 	    moneyCard_8.setIcon(new ImageIcon("./resource/moneyCards/backCard.jpg"));
 	    moneyCard_8.setBounds(449, 19, 52, 88);
 	    labelMoneyCards.add(moneyCard_8);
+	    moneyCardJlabelList.add(moneyCard_8);
 	    
 	    JLabel moneyCard_9 = new JLabel();
 	    moneyCard_9.setOpaque(true);
 	    moneyCard_9.setIcon(new ImageIcon("./resource/moneyCards/backCard.jpg"));
 	    moneyCard_9.setBounds(513, 19, 52, 88);
 	    labelMoneyCards.add(moneyCard_9);
+	    moneyCardJlabelList.add(moneyCard_9);
 	    
 	    JLabel moneyCard_10 = new JLabel();
 	    moneyCard_10.setOpaque(true);
 	    moneyCard_10.setIcon(new ImageIcon("./resource/moneyCards/backCard.jpg"));
 	    moneyCard_10.setBounds(575, 19, 52, 88);
 	    labelMoneyCards.add(moneyCard_10);
+	    moneyCardJlabelList.add(moneyCard_10);
 	    
 	    JLabel moneyCard_11 = new JLabel();
 	    moneyCard_11.setOpaque(true);
 	    moneyCard_11.setIcon(new ImageIcon("./resource/moneyCards/backCard.jpg"));
 	    moneyCard_11.setBounds(637, 19, 52, 88);
 	    labelMoneyCards.add(moneyCard_11);
+	    moneyCardJlabelList.add(moneyCard_11);
 
 	    JLabel moneyCard_12 = new JLabel();
 	    moneyCard_12.setOpaque(true);
 	    moneyCard_12.setIcon(new ImageIcon("./resource/moneyCards/backCard.jpg"));
 	    moneyCard_12.setBounds(699, 19, 52, 88);
 	    labelMoneyCards.add(moneyCard_12);
+	    moneyCardJlabelList.add(moneyCard_12);
 	    
 	    JLabel moneyCard_13 = new JLabel();
 	    moneyCard_13.setOpaque(true);
 	    moneyCard_13.setIcon(new ImageIcon("./resource/moneyCards/backCard.jpg"));
 	    moneyCard_13.setBounds(761, 19, 52, 88);
 	    labelMoneyCards.add(moneyCard_13);
+	    moneyCardJlabelList.add(moneyCard_13);
 
 	    JLabel moneyCard_14 = new JLabel();
 	    moneyCard_14.setOpaque(true);
 	    moneyCard_14.setIcon(new ImageIcon("./resource/moneyCards/backCard.jpg"));
 	    moneyCard_14.setBounds(823, 19, 52, 88);
 	    labelMoneyCards.add(moneyCard_14);
-	    moneyCard_1.setBackground(Color.RED);
-	    moneyCardJlabelList.add(moneyCard_1);
+	    moneyCardJlabelList.add(moneyCard_14);
+	    
 	    
 	    JRadioButton radioButtonPlayerMoney_1 = new JRadioButton();
 	    radioButtonPlayerMoney_1.setContentAreaFilled(false);
@@ -268,24 +281,29 @@ public class GameTablePage extends JFrame{
 	    moneyPickerCard_1.setIcon(new ImageIcon("./resource/moneyCards/backCard.jpg"));
 	    moneyPickerCard_1.setBounds(35, 27, 52, 88);
 	    labelMoneyPicker.add(moneyPickerCard_1);
+	    moneyPickerJlabelList.add(moneyPickerCard_1);
+	    
 	    
 	    JLabel moneyPickerCard_2 = new JLabel();
 	    moneyPickerCard_2.setOpaque(true);
 	    moneyPickerCard_2.setIcon(new ImageIcon("./resource/moneyCards/backCard.jpg"));
 	    moneyPickerCard_2.setBounds(93, 27, 52, 88);
 	    labelMoneyPicker.add(moneyPickerCard_2);
+	    moneyPickerJlabelList.add(moneyPickerCard_2);
 	    
 	    JLabel moneyPickerCard_3 = new JLabel();
 	    moneyPickerCard_3.setOpaque(true);
 	    moneyPickerCard_3.setIcon(new ImageIcon("./resource/moneyCards/backCard.jpg"));
 	    moneyPickerCard_3.setBounds(151, 27, 52, 88);
 	    labelMoneyPicker.add(moneyPickerCard_3);
+	    moneyPickerJlabelList.add(moneyPickerCard_3);
 	    
 	    JLabel moneyPickerCard_4 = new JLabel();
 	    moneyPickerCard_4.setOpaque(true);
 	    moneyPickerCard_4.setIcon(new ImageIcon("./resource/moneyCards/backCard.jpg"));
 	    moneyPickerCard_4.setBounds(209, 27, 52, 88);
-	    labelMoneyPicker.add(moneyPickerCard_4);	    
+	    labelMoneyPicker.add(moneyPickerCard_4);
+	    moneyPickerJlabelList.add(moneyPickerCard_4);
 	    
 	    JRadioButton pickMoneyCard_1 = new JRadioButton();
 	    pickMoneyCard_1.setBounds(51, 117, 21, 23);
