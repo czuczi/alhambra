@@ -1,12 +1,16 @@
 package View;
 
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.ImageObserver;
 import java.awt.image.ImageProducer;
+import java.util.LinkedList;
+import java.util.List;
 
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -20,10 +24,13 @@ import javax.swing.JTable;
 
 import ClientPackage.Client;
 
-public class GameTablePage {
+public class GameTablePage extends JFrame{
 
 	private JFrame frame;
 	private Client client;
+	private List<JLabel> moneyCardJlabelList = new LinkedList<>();
+	private List<JLabel> moneyPickerJlabelList = new LinkedList<>();
+	private List<JLabel> buildingMarketJlabelList = new LinkedList<>();
 
 	public GameTablePage(Client aktClient) {
 		
@@ -41,6 +48,23 @@ public class GameTablePage {
 		});
 
 
+	}
+	
+	public void setEnabledComponents(Object object, boolean state) {
+		if (object instanceof Container) {
+	        Container c = (Container)object;
+	        Component[] components = c.getComponents();
+	        for (Component component : components) {
+	        	setEnabledComponents(component, state);
+	            component.setEnabled(state);
+	        }
+	    }
+	    else {
+	        if (object instanceof Component) {
+	            Component component = (Component)object;
+	            component.setEnabled(state);
+	        }
+	    }
 	}
 
 	private void initialize() {
@@ -145,6 +169,8 @@ public class GameTablePage {
 	    moneyCard_14.setIcon(new ImageIcon("./resource/moneyCards/backCard.jpg"));
 	    moneyCard_14.setBounds(823, 19, 52, 88);
 	    labelMoneyCards.add(moneyCard_14);
+	    moneyCard_1.setBackground(Color.RED);
+	    moneyCardJlabelList.add(moneyCard_1);
 	    
 	    JRadioButton radioButtonPlayerMoney_1 = new JRadioButton();
 	    radioButtonPlayerMoney_1.setContentAreaFilled(false);
@@ -259,7 +285,7 @@ public class GameTablePage {
 	    moneyPickerCard_4.setOpaque(true);
 	    moneyPickerCard_4.setIcon(new ImageIcon("./resource/moneyCards/backCard.jpg"));
 	    moneyPickerCard_4.setBounds(209, 27, 52, 88);
-	    labelMoneyPicker.add(moneyPickerCard_4);
+	    labelMoneyPicker.add(moneyPickerCard_4);	    
 	    
 	    JRadioButton pickMoneyCard_1 = new JRadioButton();
 	    pickMoneyCard_1.setBounds(51, 117, 21, 23);
@@ -426,25 +452,30 @@ public class GameTablePage {
 	    labelBuildingMarket.add(marketBuildingCard_1);
 	    marketBuildingCard_1.setOpaque(true);
 	    marketBuildingCard_1.setIcon(new ImageIcon("./resource/buildingCards/back.jpg"));
+	    buildingMarketJlabelList.add(marketBuildingCard_1);
+
 	    
 	    JLabel marketBuildingCard_2 = new JLabel();
 	    marketBuildingCard_2.setBounds(107, 26, 75, 75);
 	    labelBuildingMarket.add(marketBuildingCard_2);
 	    marketBuildingCard_2.setOpaque(true);
 	    marketBuildingCard_2.setIcon(new ImageIcon("./resource/buildingCards/back.jpg"));
+	    buildingMarketJlabelList.add(marketBuildingCard_2);
 	    
 	    JLabel marketBuildingCard_3 = new JLabel();
 	    marketBuildingCard_3.setOpaque(true);
 	    marketBuildingCard_3.setIcon(new ImageIcon("./resource/buildingCards/back.jpg"));
 	    marketBuildingCard_3.setBounds(184, 26, 75, 75);
 	    labelBuildingMarket.add(marketBuildingCard_3);
+	    buildingMarketJlabelList.add(marketBuildingCard_3);
 	    
 	    JLabel marketBuildingCard_4 = new JLabel();
 	    marketBuildingCard_4.setOpaque(true);
 	    marketBuildingCard_4.setIcon(new ImageIcon("./resource/buildingCards/back.jpg"));
 	    marketBuildingCard_4.setBounds(261, 26, 75, 75);
 	    labelBuildingMarket.add(marketBuildingCard_4);
-	    
+	    buildingMarketJlabelList.add(marketBuildingCard_4);
+    
 	    JRadioButton radioButtonMarket_1 = new JRadioButton();
 	    radioButtonMarket_1.setBounds(55, 106, 21, 16);
 	    radioButtonMarket_1.setContentAreaFilled(false);
@@ -480,5 +511,27 @@ public class GameTablePage {
 	    btnBuyBuildingCard.setBounds(377, 440, 89, 89);
 	    frame.getContentPane().add(btnBuyBuildingCard);
 	      	    
+	}
+
+	public JFrame getFrame() {
+		return frame;
+	}
+	
+	public void playerMoneyCardBackgroundSetter(List<String> backgrounds){
+		for(int i=0; i<backgrounds.size(); i++){
+			moneyCardJlabelList.get(i).setIcon(new ImageIcon(backgrounds.get(i)));
+		}
+	}
+	
+	public void moneyPickerCardBackgroundSetter(List<String> backgrounds){
+		for(int i=0; i<backgrounds.size(); i++){
+			moneyPickerJlabelList.get(i).setIcon(new ImageIcon(backgrounds.get(i)));
+		}
+	}
+	
+	public void buildingMarketCardBackgroundSetter(List<String> backgrounds){
+		for(int i=0; i<backgrounds.size(); i++){
+			buildingMarketJlabelList.get(i).setIcon(new ImageIcon(backgrounds.get(i)));
+		}
 	}
 }

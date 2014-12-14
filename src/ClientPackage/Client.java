@@ -158,7 +158,10 @@ public class Client {
 						roomPage.getFrame().dispose();
 					}
 
+
 					gameTablePage = new GameTablePage(client);
+					client.sendMessage("amIActPlayer", client.getOs());
+
 					break;
 					
 				case "refreshRoomList":
@@ -171,6 +174,61 @@ public class Client {
 					roomManagerPage.roomListBeallito(client.roomList);
 					roomManagerPage.revalidate();
 					roomManagerPage.repaint();
+					break;
+					
+				case "isActPlayer":						//AKT PLAYER E A KLIENS
+					gameTablePage = new GameTablePage(client);
+					if(elements[1].equals("yes")){
+						gameTablePage.setEnabledComponents(gameTablePage.getFrame(), true);
+						gameTablePage.revalidate();
+						gameTablePage.repaint();
+					}else{
+						gameTablePage.setEnabledComponents(gameTablePage.getFrame(), false);
+						gameTablePage.revalidate();
+						gameTablePage.repaint();
+					}
+					client.sendMessage("tableAttributesRefresh", client.getOs());		//TÁBLA ADATOK FRISSÍTÉSE
+					break;
+					
+				case "yourMoneyCards":
+					List<String> myMoneyCardsPictures = new LinkedList<>();
+					String aktPic = "";
+					if(elements.length > 1){
+						for(int i=1; i<elements.length; i=i+2){
+							aktPic = "./resource/MoneyCards/"+elements[i]+"/"+elements[i+1]+"/image.jpg";
+							myMoneyCardsPictures.add(aktPic);
+						}
+						gameTablePage.playerMoneyCardBackgroundSetter(myMoneyCardsPictures);
+						gameTablePage.revalidate();
+						gameTablePage.repaint();
+					}
+					break;
+					
+				case "moneyPickerViewCards":
+					List<String> moneyPickerViewMoneyCardsPictures = new LinkedList<>();
+					String aktPictures = "";
+					if(elements.length > 1){
+						for(int i=1; i<elements.length; i=i+2){
+							aktPictures = "./resource/MoneyCards/"+elements[i]+"/"+elements[i+1]+"/image.jpg";
+							moneyPickerViewMoneyCardsPictures.add(aktPictures);
+						}
+						gameTablePage.moneyPickerCardBackgroundSetter(moneyPickerViewMoneyCardsPictures);
+						gameTablePage.revalidate();
+						gameTablePage.repaint();
+					}
+					break;
+					
+				case "buildingMarketCards":
+					List<String> buildingMarketPictures = new LinkedList<>();
+					if(elements.length > 1){
+						for(int i=1; i<elements.length; i++){
+							buildingMarketPictures.add(elements[i]+".jpg");
+						}
+						gameTablePage.buildingMarketCardBackgroundSetter(buildingMarketPictures);
+						gameTablePage.revalidate();
+						gameTablePage.repaint();
+					}
+					
 					break;
 					
 				default:
