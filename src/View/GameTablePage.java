@@ -378,49 +378,49 @@ public class GameTablePage extends JFrame{
 	    JLabel storageBuildingCard_2 = new JLabel();
 	    storageBuildingCard_2.setOpaque(true);
 	    storageBuildingCard_2.setIcon(new ImageIcon("./resource/buildingCards/back.jpg"));
-	    storageBuildingCard_2.setBounds(17, 103, 75, 75);
+	    storageBuildingCard_2.setBounds(12, 103, 75, 75);
 	    labelStorageArea.add(storageBuildingCard_2);
 	    
 	    JLabel storageBuildingCard_3 = new JLabel();
 	    storageBuildingCard_3.setOpaque(true);
 	    storageBuildingCard_3.setIcon(new ImageIcon("./resource/buildingCards/back.jpg"));
-	    storageBuildingCard_3.setBounds(17, 189, 75, 75);
+	    storageBuildingCard_3.setBounds(12, 189, 75, 75);
 	    labelStorageArea.add(storageBuildingCard_3);
 	    
 	    JLabel storageBuildingCard_4 = new JLabel();
 	    storageBuildingCard_4.setOpaque(true);
 	    storageBuildingCard_4.setIcon(new ImageIcon("./resource/buildingCards/back.jpg"));
-	    storageBuildingCard_4.setBounds(17, 275, 75, 75);
+	    storageBuildingCard_4.setBounds(12, 275, 75, 75);
 	    labelStorageArea.add(storageBuildingCard_4);
 	    
 	    JLabel storageBuildingCard_5 = new JLabel();
 	    storageBuildingCard_5.setOpaque(true);
 	    storageBuildingCard_5.setIcon(new ImageIcon("./resource/buildingCards/back.jpg"));
-	    storageBuildingCard_5.setBounds(17, 361, 75, 75);
+	    storageBuildingCard_5.setBounds(12, 361, 75, 75);
 	    labelStorageArea.add(storageBuildingCard_5);
 	    
 	    JLabel storageBuildingCard_6 = new JLabel();
 	    storageBuildingCard_6.setOpaque(true);
 	    storageBuildingCard_6.setIcon(new ImageIcon("./resource/buildingCards/back.jpg"));
-	    storageBuildingCard_6.setBounds(17, 447, 75, 75);
+	    storageBuildingCard_6.setBounds(12, 447, 75, 75);
 	    labelStorageArea.add(storageBuildingCard_6);
 	    
 	    JLabel storageBuildingCard_7 = new JLabel();
 	    storageBuildingCard_7.setOpaque(true);
 	    storageBuildingCard_7.setIcon(new ImageIcon("./resource/buildingCards/back.jpg"));
-	    storageBuildingCard_7.setBounds(17, 533, 75, 75);
+	    storageBuildingCard_7.setBounds(12, 533, 75, 75);
 	    labelStorageArea.add(storageBuildingCard_7);
 	    
 	    JLabel storageBuildingCard_8 = new JLabel();
 	    storageBuildingCard_8.setOpaque(true);
 	    storageBuildingCard_8.setIcon(new ImageIcon("./resource/buildingCards/back.jpg"));
-	    storageBuildingCard_8.setBounds(17, 619, 75, 75);
+	    storageBuildingCard_8.setBounds(12, 619, 75, 75);
 	    labelStorageArea.add(storageBuildingCard_8);
 	    
 	    JLabel storageBuildingCard_9 = new JLabel();
 	    storageBuildingCard_9.setOpaque(true);
 	    storageBuildingCard_9.setIcon(new ImageIcon("./resource/buildingCards/back.jpg"));
-	    storageBuildingCard_9.setBounds(17, 705, 75, 75);
+	    storageBuildingCard_9.setBounds(12, 705, 75, 75);
 	    labelStorageArea.add(storageBuildingCard_9);
 	    
 	    ButtonGroup bg = new ButtonGroup();

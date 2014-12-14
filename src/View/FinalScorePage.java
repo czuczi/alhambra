@@ -38,14 +38,14 @@ public class FinalScorePage {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame("Final Result");
+		frame = new JFrame("A játék végeredménye");
 		frame.setResizable(false);
 		frame.setBounds(400, 300, 600, 400);
 		frame.setContentPane(new JLabel(new ImageIcon("./resource/otherImages/backgroundScore.jpg")));
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblScore = new JLabel("Final Score:");
+		JLabel lblScore = new JLabel("Végső eredmény:");
 		lblScore.setBounds(21, 21, 118, 14);
 		frame.getContentPane().add(lblScore);
 		
@@ -56,7 +56,7 @@ public class FinalScorePage {
 		scrollPanePlayers.setBounds(74, 57, 433, 232);
 		frame.getContentPane().add(scrollPanePlayers);
 		
-		JButton btnContinue = new JButton("Continue");
+		JButton btnContinue = new JButton("Folytatás");
 		btnContinue.setBounds(418, 317, 89, 23);
 		frame.getContentPane().add(btnContinue);
 	}
