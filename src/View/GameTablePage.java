@@ -190,7 +190,6 @@ public class GameTablePage extends JFrame{
 	    labelMoneyCards.add(moneyCard_14);
 	    moneyCardJlabelList.add(moneyCard_14);
 	    
-	    
 	    JRadioButton radioButtonPlayerMoney_1 = new JRadioButton();
 	    radioButtonPlayerMoney_1.setContentAreaFilled(false);
 	    radioButtonPlayerMoney_1.setOpaque(false);
