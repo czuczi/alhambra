@@ -159,7 +159,7 @@ public class Client {
 					}
 
 					client.sendMessage("amIActPlayer", client.getOs());
-
+					gameTablePage = new GameTablePage(client);
 					break;
 					
 				case "refreshRoomList":
@@ -175,7 +175,6 @@ public class Client {
 					break;
 					
 				case "isActPlayer":						//AKT PLAYER E A KLIENS
-					gameTablePage = new GameTablePage(client);
 					if(elements[1].equals("yes")){
 						gameTablePage.setEnabledComponents(gameTablePage.getFrame(), true);
 						gameTablePage.revalidate();
@@ -228,6 +227,14 @@ public class Client {
 					}
 					
 					break;
+					
+				case "pickMoneyCardsFailed":
+					JOptionPane.showMessageDialog(null, "A húzott lapok értéke nem haladhatja meg az 5-öt!");
+					gameTablePage.revalidate();
+					gameTablePage.repaint();
+					break;
+					
+				
 					
 				default:
 					shouldBreak = true;
