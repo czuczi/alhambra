@@ -7,6 +7,8 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.ImageObserver;
 import java.awt.image.ImageProducer;
 import java.util.LinkedList;
@@ -28,6 +30,10 @@ public class GameTablePage extends JFrame{
 
 	private JFrame frame;
 	private Client client;
+	private JRadioButton pickMoneyCard_1;
+	private JRadioButton pickMoneyCard_2;
+	private JRadioButton pickMoneyCard_3;
+	private JRadioButton pickMoneyCard_4;
 	private List<JLabel> moneyCardJlabelList = new LinkedList<>();
 	private List<JLabel> moneyPickerJlabelList = new LinkedList<>();
 	private List<JLabel> buildingMarketJlabelList = new LinkedList<>();
@@ -305,25 +311,25 @@ public class GameTablePage extends JFrame{
 	    labelMoneyPicker.add(moneyPickerCard_4);
 	    moneyPickerJlabelList.add(moneyPickerCard_4);
 	    
-	    JRadioButton pickMoneyCard_1 = new JRadioButton();
+	    pickMoneyCard_1 = new JRadioButton();
 	    pickMoneyCard_1.setBounds(51, 117, 21, 23);
 		pickMoneyCard_1.setContentAreaFilled(false);
 	    pickMoneyCard_1.setOpaque(false);
 	    labelMoneyPicker.add(pickMoneyCard_1);
 	    
-	    JRadioButton pickMoneyCard_2 = new JRadioButton();
+	    pickMoneyCard_2 = new JRadioButton();
 	    pickMoneyCard_2.setBounds(111, 117, 21, 23);
 	    pickMoneyCard_2.setContentAreaFilled(false);
 	    pickMoneyCard_2.setOpaque(false);
 	    labelMoneyPicker.add(pickMoneyCard_2);
 	    
-	    JRadioButton pickMoneyCard_3 = new JRadioButton();
+	    pickMoneyCard_3 = new JRadioButton();
 	    pickMoneyCard_3.setBounds(169, 117, 21, 23);
 	    pickMoneyCard_3.setContentAreaFilled(false);
 	    pickMoneyCard_3.setOpaque(false);
 	    labelMoneyPicker.add(pickMoneyCard_3);
 	    
-	    JRadioButton pickMoneyCard_4 = new JRadioButton();
+	    pickMoneyCard_4 = new JRadioButton();
 	    pickMoneyCard_4.setBounds(227, 117, 21, 23);
 	    pickMoneyCard_4.setContentAreaFilled(false);
 	    pickMoneyCard_4.setOpaque(false);
@@ -334,6 +340,26 @@ public class GameTablePage extends JFrame{
 	  //  pickButton.setBorderPainted(false);
 	    pickButton.setOpaque(true);
 	    pickButton.setBounds(270, 27, 89, 89);
+	    pickButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String selectedMoneyCards = "";
+				if(pickMoneyCard_1.isSelected()){
+					selectedMoneyCards += ";0";
+				}
+				if(pickMoneyCard_2.isSelected()){
+					selectedMoneyCards += ";1";
+				}
+				if(pickMoneyCard_3.isSelected()){
+					selectedMoneyCards += ";2";
+				}
+				if(pickMoneyCard_4.isSelected()){
+					selectedMoneyCards += ";3";
+				}
+				client.sendMessage("pickMoneyCards"+selectedMoneyCards, client.getOs());
+			}
+		});
 	    labelMoneyPicker.add(pickButton);
 	    
 	    JLabel labelStorageArea = new JLabel();
