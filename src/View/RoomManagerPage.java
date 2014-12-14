@@ -6,6 +6,8 @@ import java.awt.ScrollPane;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.JLabel;
 
 import java.awt.Font;
@@ -219,7 +221,14 @@ public class RoomManagerPage extends JFrame {
 		
 		listRoom = new JList<String>();
 		listRoom.setBounds(10, 145, 358, 177);
-		roomListBeallito(client.getRoomList());		
+		roomListBeallito(client.getRoomList());	
+		listRoom.addListSelectionListener(new ListSelectionListener() {
+			
+			@Override
+			public void valueChanged(ListSelectionEvent e) {
+				buttonCsatlakozas.setEnabled(true);
+			}
+		});
 
 		JScrollPane scrollpane = new JScrollPane(listRoom, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		scrollpane.setBounds(10, 145, 358, 177);
@@ -227,6 +236,7 @@ public class RoomManagerPage extends JFrame {
 
 		
 		buttonCsatlakozas = new JButton("Csatlakozás");
+		buttonCsatlakozas.setEnabled(false);
 		buttonCsatlakozas.addActionListener(new ActionListener() {
 			
 			@Override
