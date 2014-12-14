@@ -158,8 +158,6 @@ public class Client {
 						roomPage.getFrame().dispose();
 					}
 
-
-					gameTablePage = new GameTablePage(client);
 					client.sendMessage("amIActPlayer", client.getOs());
 
 					break;
