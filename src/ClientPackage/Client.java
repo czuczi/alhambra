@@ -157,6 +157,7 @@ public class Client {
 						roomPage.getFrame().setVisible(false);
 						roomPage.getFrame().dispose();
 					}
+
 					gameTablePage = new GameTablePage(client);
 					break;
 					
