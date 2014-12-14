@@ -36,7 +36,6 @@ public class GameTablePage extends JFrame{
 		
 		client = aktClient;
 		initialize();
-		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -46,8 +45,6 @@ public class GameTablePage extends JFrame{
 				}
 			}
 		});
-
-
 	}
 	
 	public void setEnabledComponents(Object object, boolean state) {
@@ -71,6 +68,7 @@ public class GameTablePage extends JFrame{
 		
 	    frame = new JFrame("Alhambra");
 	    frame.setBounds(200, 20, 1000, 600);
+	    frame.setResizable(false);
 	    frame.setContentPane(new JLabel(new ImageIcon("./resource/otherImages/background.jpg")));
 	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    frame.getContentPane().setLayout(null);
@@ -524,9 +522,33 @@ public class GameTablePage extends JFrame{
 	    JButton btnBuyBuildingCard = new JButton();
 	    btnBuyBuildingCard.setIcon(new ImageIcon("./resource/otherImages/buyButton.png"));
 	   // btnBuyBuildingCard.setBorderPainted(false);
-	    btnBuyBuildingCard.setOpaque(true);
+	    btnBuyBuildingCard.setOpaque(false);
 	    btnBuyBuildingCard.setBounds(377, 440, 89, 89);
 	    frame.getContentPane().add(btnBuyBuildingCard);
+	    
+	    JLabel labelCurrency_1 = new JLabel();
+	    labelCurrency_1.setIcon(new ImageIcon("./resource/otherImages/blueMarket.png"));
+	    labelCurrency_1.setOpaque(false);
+	    labelCurrency_1.setBounds(56, 0, 23, 23);
+	    labelBuildingMarket.add(labelCurrency_1);
+	    
+	    JLabel labelCurrency_2 = new JLabel();
+	    labelCurrency_2.setIcon(new ImageIcon("./resource/otherImages/greenMarket.png"));
+	    labelCurrency_2.setOpaque(false);
+	    labelCurrency_2.setBounds(132, 0, 23, 23);
+	    labelBuildingMarket.add(labelCurrency_2);
+	    
+	    JLabel labelCurrency_3 = new JLabel();
+	    labelCurrency_3.setIcon(new ImageIcon("./resource/otherImages/orangeMarket.png"));
+	    labelCurrency_3.setOpaque(false);
+	    labelCurrency_3.setBounds(208, 0, 23, 23);
+	    labelBuildingMarket.add(labelCurrency_3);
+	    
+	    JLabel labelCurrency_4 = new JLabel();
+	    labelCurrency_4.setIcon(new ImageIcon("./resource/otherImages/yellowMarket.png"));
+	    labelCurrency_4.setOpaque(false);
+	    labelCurrency_4.setBounds(285, 0, 23, 23);
+	    labelBuildingMarket.add(labelCurrency_4);
 	      	    
 	}
 
