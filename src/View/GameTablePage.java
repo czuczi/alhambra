@@ -9,6 +9,8 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.ImageObserver;
 import java.awt.image.ImageProducer;
 import java.util.LinkedList;
@@ -19,6 +21,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
@@ -34,9 +37,30 @@ public class GameTablePage extends JFrame{
 	private JRadioButton pickMoneyCard_2;
 	private JRadioButton pickMoneyCard_3;
 	private JRadioButton pickMoneyCard_4;
+	
+	private JRadioButton radioButtonMarket_1;
+	private JRadioButton radioButtonMarket_2;
+	private JRadioButton radioButtonMarket_3;
+	private JRadioButton radioButtonMarket_4;
+	
+	private JLabel storageBuildingCard_2;
+	private JLabel storageBuildingCard_3;
+	private JLabel storageBuildingCard_4;
+	private JLabel storageBuildingCard_5;
+	private JLabel storageBuildingCard_6;
+	private JLabel storageBuildingCard_7;
+	private JLabel storageBuildingCard_8;
+	private JLabel storageBuildingCard_9;
+	
+	
 	private List<JLabel> moneyCardJlabelList = new LinkedList<>();
 	private List<JLabel> moneyPickerJlabelList = new LinkedList<>();
 	private List<JLabel> buildingMarketJlabelList = new LinkedList<>();
+	private List<JRadioButton> playerMoneyCardsJRadioButtonList = new LinkedList<>();
+	private List<JLabel> storageAreaCardsJlabelList = new LinkedList<>();
+	
+	
+	private int matrixX, matrixY;
 
 	public GameTablePage(Client aktClient) {
 		
@@ -195,84 +219,98 @@ public class GameTablePage extends JFrame{
 	    radioButtonPlayerMoney_1.setOpaque(false);
 	    radioButtonPlayerMoney_1.setBounds(31, 111, 21, 16);
 	    labelMoneyCards.add(radioButtonPlayerMoney_1);
+	    playerMoneyCardsJRadioButtonList.add(radioButtonPlayerMoney_1);
 	    
 	    JRadioButton radioButtonPlayerMoney_2 = new JRadioButton();
 	    radioButtonPlayerMoney_2.setContentAreaFilled(false);
 	    radioButtonPlayerMoney_2.setOpaque(false);
 	    radioButtonPlayerMoney_2.setBounds(93, 111, 21, 16);
 	    labelMoneyCards.add(radioButtonPlayerMoney_2);
+	    playerMoneyCardsJRadioButtonList.add(radioButtonPlayerMoney_2);
 	    
 	    JRadioButton radioButtonPlayerMoney_3 = new JRadioButton();
 	    radioButtonPlayerMoney_3.setContentAreaFilled(false);
 	    radioButtonPlayerMoney_3.setOpaque(false);
 	    radioButtonPlayerMoney_3.setBounds(155, 111, 21, 16);
 	    labelMoneyCards.add(radioButtonPlayerMoney_3);
+	    playerMoneyCardsJRadioButtonList.add(radioButtonPlayerMoney_3);
 	    
 	    JRadioButton radioButtonPlayerMoney_4 = new JRadioButton();
 	    radioButtonPlayerMoney_4.setContentAreaFilled(false);
 	    radioButtonPlayerMoney_4.setOpaque(false);
 	    radioButtonPlayerMoney_4.setBounds(217, 111, 21, 16);
 	    labelMoneyCards.add(radioButtonPlayerMoney_4);
+	    playerMoneyCardsJRadioButtonList.add(radioButtonPlayerMoney_4);
 	    
 	    JRadioButton radioButtonPlayerMoney_5 = new JRadioButton();
 	    radioButtonPlayerMoney_5.setContentAreaFilled(false);
 	    radioButtonPlayerMoney_5.setOpaque(false);
 	    radioButtonPlayerMoney_5.setBounds(279, 111, 21, 16);
 	    labelMoneyCards.add(radioButtonPlayerMoney_5);
+	    playerMoneyCardsJRadioButtonList.add(radioButtonPlayerMoney_5);
 	    
 	    JRadioButton radioButtonPlayerMoney_6 = new JRadioButton();
 	    radioButtonPlayerMoney_6.setContentAreaFilled(false);
 	    radioButtonPlayerMoney_6.setOpaque(false);
 	    radioButtonPlayerMoney_6.setBounds(341, 111, 21, 16);
 	    labelMoneyCards.add(radioButtonPlayerMoney_6);
+	    playerMoneyCardsJRadioButtonList.add(radioButtonPlayerMoney_6);
 	    
 	    JRadioButton radioButtonPlayerMoney_7 = new JRadioButton();
 	    radioButtonPlayerMoney_7.setContentAreaFilled(false);
 	    radioButtonPlayerMoney_7.setOpaque(false);
 	    radioButtonPlayerMoney_7.setBounds(405, 111, 21, 16);
 	    labelMoneyCards.add(radioButtonPlayerMoney_7);
+	    playerMoneyCardsJRadioButtonList.add(radioButtonPlayerMoney_7);
 	    
 	    JRadioButton radioButtonPlayerMoney_8 = new JRadioButton();
 	    radioButtonPlayerMoney_8.setContentAreaFilled(false);
 	    radioButtonPlayerMoney_8.setOpaque(false);
 	    radioButtonPlayerMoney_8.setBounds(467, 111, 21, 16);
 	    labelMoneyCards.add(radioButtonPlayerMoney_8);
+	    playerMoneyCardsJRadioButtonList.add(radioButtonPlayerMoney_8);
 	    
 	    JRadioButton radioButtonPlayerMoney_9 = new JRadioButton();
 	    radioButtonPlayerMoney_9.setContentAreaFilled(false);
 	    radioButtonPlayerMoney_9.setOpaque(false);
 	    radioButtonPlayerMoney_9.setBounds(529, 111, 21, 16);
 	    labelMoneyCards.add(radioButtonPlayerMoney_9);
+	    playerMoneyCardsJRadioButtonList.add(radioButtonPlayerMoney_9);
 	    
 	    JRadioButton radioButtonPlayerMoney_10 = new JRadioButton();
 	    radioButtonPlayerMoney_10.setContentAreaFilled(false);
 	    radioButtonPlayerMoney_10.setOpaque(false);
 	    radioButtonPlayerMoney_10.setBounds(591, 111, 21, 16);
 	    labelMoneyCards.add(radioButtonPlayerMoney_10);
+	    playerMoneyCardsJRadioButtonList.add(radioButtonPlayerMoney_10);
 	    
 	    JRadioButton radioButtonPlayerMoney_11 = new JRadioButton();
 	    radioButtonPlayerMoney_11.setContentAreaFilled(false);
 	    radioButtonPlayerMoney_11.setOpaque(false);
 	    radioButtonPlayerMoney_11.setBounds(653, 111, 21, 16);
 	    labelMoneyCards.add(radioButtonPlayerMoney_11);
+	    playerMoneyCardsJRadioButtonList.add(radioButtonPlayerMoney_11);
 	    
 	    JRadioButton radioButtonPlayerMoney_12 = new JRadioButton();
 	    radioButtonPlayerMoney_12.setContentAreaFilled(false);
 	    radioButtonPlayerMoney_12.setOpaque(false);
 	    radioButtonPlayerMoney_12.setBounds(715, 111, 21, 16);
 	    labelMoneyCards.add(radioButtonPlayerMoney_12);
+	    playerMoneyCardsJRadioButtonList.add(radioButtonPlayerMoney_12);
 	    
 	    JRadioButton radioButtonPlayerMoney_13 = new JRadioButton();
 	    radioButtonPlayerMoney_13.setContentAreaFilled(false);
 	    radioButtonPlayerMoney_13.setOpaque(false);
 	    radioButtonPlayerMoney_13.setBounds(777, 111, 21, 16);
 	    labelMoneyCards.add(radioButtonPlayerMoney_13);
+	    playerMoneyCardsJRadioButtonList.add(radioButtonPlayerMoney_13);
 	    
 	    JRadioButton radioButtonPlayerMoney_14 = new JRadioButton();
 	    radioButtonPlayerMoney_14.setContentAreaFilled(false);
 	    radioButtonPlayerMoney_14.setOpaque(false);
 	    radioButtonPlayerMoney_14.setBounds(839, 111, 21, 16);
 	    labelMoneyCards.add(radioButtonPlayerMoney_14);
+	    playerMoneyCardsJRadioButtonList.add(radioButtonPlayerMoney_14);
 	    
 	    JLabel labelMoneyPicker = new JLabel();
 	    labelMoneyPicker.setBounds(469, 11, 390, 150);
@@ -375,55 +413,96 @@ public class GameTablePage extends JFrame{
 	    storageBuildingCard_1.setOpaque(true);
 	    storageBuildingCard_1.setIcon(new ImageIcon("./resource/otherImages/storageTop.jpg"));
 	    storageBuildingCard_1.setBounds(0, 0, 97, 97);
+	    storageBuildingCard_1.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				System.out.println("BÁJ TU SZTORIDZSERIÖ");
+				client.sendMessage("buyToStorageArea", client.getOs());
+				
+			}
+		});
 	    labelStorageArea.add(storageBuildingCard_1);
 	    
-	    JLabel storageBuildingCard_2 = new JLabel();
+	    storageBuildingCard_2 = new JLabel();
 	    storageBuildingCard_2.setOpaque(true);
 	    storageBuildingCard_2.setIcon(new ImageIcon("./resource/buildingCards/back.jpg"));
 	    storageBuildingCard_2.setBounds(17, 103, 75, 75);
 	    labelStorageArea.add(storageBuildingCard_2);
+	    storageAreaCardsJlabelList.add(storageBuildingCard_2);
 	    
-	    JLabel storageBuildingCard_3 = new JLabel();
+	    storageBuildingCard_3 = new JLabel();
 	    storageBuildingCard_3.setOpaque(true);
 	    storageBuildingCard_3.setIcon(new ImageIcon("./resource/buildingCards/back.jpg"));
 	    storageBuildingCard_3.setBounds(17, 189, 75, 75);
 	    labelStorageArea.add(storageBuildingCard_3);
+	    storageAreaCardsJlabelList.add(storageBuildingCard_3);
 	    
-	    JLabel storageBuildingCard_4 = new JLabel();
+	    storageBuildingCard_4 = new JLabel();
 	    storageBuildingCard_4.setOpaque(true);
 	    storageBuildingCard_4.setIcon(new ImageIcon("./resource/buildingCards/back.jpg"));
 	    storageBuildingCard_4.setBounds(17, 275, 75, 75);
 	    labelStorageArea.add(storageBuildingCard_4);
+	    storageAreaCardsJlabelList.add(storageBuildingCard_4);
 	    
-	    JLabel storageBuildingCard_5 = new JLabel();
+	    storageBuildingCard_5 = new JLabel();
 	    storageBuildingCard_5.setOpaque(true);
 	    storageBuildingCard_5.setIcon(new ImageIcon("./resource/buildingCards/back.jpg"));
 	    storageBuildingCard_5.setBounds(17, 361, 75, 75);
 	    labelStorageArea.add(storageBuildingCard_5);
+	    storageAreaCardsJlabelList.add(storageBuildingCard_5);
 	    
-	    JLabel storageBuildingCard_6 = new JLabel();
+	    storageBuildingCard_6 = new JLabel();
 	    storageBuildingCard_6.setOpaque(true);
 	    storageBuildingCard_6.setIcon(new ImageIcon("./resource/buildingCards/back.jpg"));
 	    storageBuildingCard_6.setBounds(17, 447, 75, 75);
 	    labelStorageArea.add(storageBuildingCard_6);
+	    storageAreaCardsJlabelList.add(storageBuildingCard_6);
 	    
-	    JLabel storageBuildingCard_7 = new JLabel();
+	    storageBuildingCard_7 = new JLabel();
 	    storageBuildingCard_7.setOpaque(true);
 	    storageBuildingCard_7.setIcon(new ImageIcon("./resource/buildingCards/back.jpg"));
 	    storageBuildingCard_7.setBounds(17, 533, 75, 75);
 	    labelStorageArea.add(storageBuildingCard_7);
+	    storageAreaCardsJlabelList.add(storageBuildingCard_7);
 	    
-	    JLabel storageBuildingCard_8 = new JLabel();
+	    storageBuildingCard_8 = new JLabel();
 	    storageBuildingCard_8.setOpaque(true);
 	    storageBuildingCard_8.setIcon(new ImageIcon("./resource/buildingCards/back.jpg"));
 	    storageBuildingCard_8.setBounds(17, 619, 75, 75);
 	    labelStorageArea.add(storageBuildingCard_8);
+	    storageAreaCardsJlabelList.add(storageBuildingCard_8);
 	    
-	    JLabel storageBuildingCard_9 = new JLabel();
+	    storageBuildingCard_9 = new JLabel();
 	    storageBuildingCard_9.setOpaque(true);
 	    storageBuildingCard_9.setIcon(new ImageIcon("./resource/buildingCards/back.jpg"));
 	    storageBuildingCard_9.setBounds(17, 705, 75, 75);
 	    labelStorageArea.add(storageBuildingCard_9);
+	    storageAreaCardsJlabelList.add(storageBuildingCard_9);
 	    
 	    ButtonGroup bg = new ButtonGroup();
 	    
@@ -443,6 +522,8 @@ public class GameTablePage extends JFrame{
 	    {
 	    	for(int j = 0; j < 21; j++)
 	    	{
+	    		matrixX = i;
+	    		matrixY = j;
 	    		table[i][j] = new JLabel();
 	    		if(i==10 && j==10)
 	    			table[i][j].setIcon(new ImageIcon("./resource/buildingCards/start.jpg"));
@@ -450,6 +531,39 @@ public class GameTablePage extends JFrame{
 	    			table[i][j].setBackground(new Color(199,153,116));
 	    		table[i][j].setOpaque(true);
 	    		table[i][j].setBounds(i*77, j*77, 75, 75);
+	    		table[i][j].addMouseListener(new MouseListener() {
+					
+					@Override
+					public void mouseReleased(MouseEvent e) {
+						// TODO Auto-generated method stub
+						
+					}
+					
+					@Override
+					public void mousePressed(MouseEvent e) {
+						// TODO Auto-generated method stub
+						
+					}
+					
+					@Override
+					public void mouseExited(MouseEvent e) {
+						// TODO Auto-generated method stub
+						
+					}
+					
+					@Override
+					public void mouseEntered(MouseEvent e) {
+						// TODO Auto-generated method stub
+						
+					}
+					
+					@Override
+					public void mouseClicked(MouseEvent e) {
+						System.out.println("BÁJ TU ALHAMBRA");
+						client.sendMessage("buyToAlhambra;"+matrixX+";"+matrixY, client.getOs());
+						
+					}
+				});
 	    		panelBuildingArea.add(table[i][j]);
 	    	}
 	    }
@@ -519,25 +633,25 @@ public class GameTablePage extends JFrame{
 	    labelBuildingMarket.add(marketBuildingCard_4);
 	    buildingMarketJlabelList.add(marketBuildingCard_4);
     
-	    JRadioButton radioButtonMarket_1 = new JRadioButton();
+	    radioButtonMarket_1 = new JRadioButton();
 	    radioButtonMarket_1.setBounds(55, 106, 21, 16);
 	    radioButtonMarket_1.setContentAreaFilled(false);
 	    radioButtonMarket_1.setOpaque(false);
 	    labelBuildingMarket.add(radioButtonMarket_1);
 	    
-	    JRadioButton radioButtonMarket_2 = new JRadioButton();
+	    radioButtonMarket_2 = new JRadioButton();
 	    radioButtonMarket_2.setContentAreaFilled(false);
 	    radioButtonMarket_2.setOpaque(false);
 	    radioButtonMarket_2.setBounds(136, 106, 21, 16);
 	    labelBuildingMarket.add(radioButtonMarket_2);
 	    
-	    JRadioButton radioButtonMarket_3 = new JRadioButton();
+	    radioButtonMarket_3 = new JRadioButton();
 	    radioButtonMarket_3.setContentAreaFilled(false);
 	    radioButtonMarket_3.setOpaque(false);
 	    radioButtonMarket_3.setBounds(211, 106, 21, 16);
 	    labelBuildingMarket.add(radioButtonMarket_3);
 	    
-	    JRadioButton radioButtonMarket_4 = new JRadioButton();
+	    radioButtonMarket_4 = new JRadioButton();
 	    radioButtonMarket_4.setContentAreaFilled(false);
 	    radioButtonMarket_4.setOpaque(false);
 	    radioButtonMarket_4.setBounds(292, 106, 21, 16);
@@ -552,6 +666,36 @@ public class GameTablePage extends JFrame{
 	   // btnBuyBuildingCard.setBorderPainted(false);
 	    btnBuyBuildingCard.setOpaque(true);
 	    btnBuyBuildingCard.setBounds(377, 440, 89, 89);
+	    btnBuyBuildingCard.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				String message = "";
+				if(!(radioButtonMarket_1.isSelected() || radioButtonMarket_2.isSelected() || radioButtonMarket_3.isSelected() || radioButtonMarket_4.isSelected())){
+					JOptionPane.showMessageDialog(null, "Válassz egy épületlapot az építőudvarról(balra)!");
+				}else{
+					if(radioButtonMarket_1.isSelected()){
+						message += ";Blue";
+					}
+					if(radioButtonMarket_2.isSelected()){
+						message += ";Green";
+					}
+					if(radioButtonMarket_3.isSelected()){
+						message += ";Orange";
+					}
+					if(radioButtonMarket_4.isSelected()){
+						message += ";Yellow";
+					}
+						
+					for(int i=0; i<playerMoneyCardsJRadioButtonList.size(); i++){
+						if(playerMoneyCardsJRadioButtonList.get(i).isSelected()){
+							message += ";"+i;
+						}
+					}
+					client.sendMessage("buyBuildingCard"+message, client.getOs());
+				}
+			}
+		});
 	    frame.getContentPane().add(btnBuyBuildingCard);
 	      	    
 	}
@@ -564,6 +708,9 @@ public class GameTablePage extends JFrame{
 		for(int i=0; i<backgrounds.size(); i++){
 			moneyCardJlabelList.get(i).setIcon(new ImageIcon(backgrounds.get(i)));
 		}
+		for(int i=backgrounds.size(); i<moneyCardJlabelList.size(); i++){
+			moneyCardJlabelList.get(i).setIcon(new ImageIcon("./resource/moneyCards/backCard.jpg"));
+		}
 	}
 	
 	public void moneyPickerCardBackgroundSetter(List<String> backgrounds){
@@ -575,6 +722,12 @@ public class GameTablePage extends JFrame{
 	public void buildingMarketCardBackgroundSetter(List<String> backgrounds){
 		for(int i=0; i<backgrounds.size(); i++){
 			buildingMarketJlabelList.get(i).setIcon(new ImageIcon(backgrounds.get(i)));
+		}
+	}
+	
+	public void storageAreaCardBackgroundSetter(List<String> backgrounds){
+		for(int i=0; i<backgrounds.size(); i++){
+			storageAreaCardsJlabelList.get(i).setIcon(new ImageIcon(backgrounds.get(i)));
 		}
 	}
 }

@@ -228,13 +228,34 @@ public class Client {
 					
 					break;
 					
+				case "storageAreaCards":
+					List<String> storageAreaPictures = new LinkedList<>();
+					if(elements.length > 1){
+						for(int i=1; i<elements.length; i++){
+							storageAreaPictures.add(elements[i]+".jpg");
+						}
+						gameTablePage.storageAreaCardBackgroundSetter(storageAreaPictures);
+						gameTablePage.revalidate();
+						gameTablePage.repaint();
+					}
+					
+					break;
+					
 				case "pickMoneyCardsFailed":
 					JOptionPane.showMessageDialog(null, "A húzott lapok értéke nem haladhatja meg az 5-öt!");
 					gameTablePage.revalidate();
 					gameTablePage.repaint();
 					break;
 					
-				
+				case "isEnoughMoney":
+					if(elements[1].equals("no")){
+						JOptionPane.showMessageDialog(null, "Túl kevés pénzt választottál ki!");
+					}else{
+						JOptionPane.showMessageDialog(null, "Válassz, hová szeretnéd elhelyezni. Kattints az alhambrádba, vagy a tartalékmező üres mezőjére!");
+					}
+					
+					break;
+					
 					
 				default:
 					shouldBreak = true;
