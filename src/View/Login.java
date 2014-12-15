@@ -39,12 +39,13 @@ public class Login {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() { 
-		frame = new JFrame();
+		frame = new JFrame("Bejelentkezési Felület");
 		frame.setBounds(100, 100, 450, 300);
+		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JButton btnLogin = new JButton("Login");									//LOGIN BUTTON
+		JButton btnLogin = new JButton("Bejelentkezés");									//LOGIN BUTTON
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(!loginField.getText().isEmpty()){
@@ -53,18 +54,18 @@ public class Login {
 				}
 			}
 		});
-		btnLogin.setBounds(315, 110, 89, 23);
+		btnLogin.setBounds(300, 112, 120, 23);
 		frame.getContentPane().add(btnLogin);
 		
 		
 		
 		loginField = new JTextField();
-		loginField.setBounds(120, 111, 166, 20);
+		loginField.setBounds(120, 114, 166, 20);
 		frame.getContentPane().add(loginField);
 		loginField.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("Nickname:");
-		lblNewLabel.setBounds(46, 114, 64, 14);
+		JLabel lblNewLabel = new JLabel("Felhasználónév:");
+		lblNewLabel.setBounds(15, 114, 90, 14);
 		frame.getContentPane().add(lblNewLabel);
 	}
 

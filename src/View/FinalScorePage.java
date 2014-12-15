@@ -13,13 +13,13 @@ import javax.swing.JScrollPane;
 
 import ClientPackage.Client;
 
-public class ScorePage {
+public class FinalScorePage {
 
 	private JFrame frame;
 	private JList jListPlayers;
 	private Client client;
 
-	public ScorePage(Client aktClient) {
+	public FinalScorePage(Client aktClient) {
 		
 		client = aktClient;
 		initialize();
@@ -32,20 +32,21 @@ public class ScorePage {
 				}
 			}
 		});
-
 	}
 
+	/**
+	 * Initialize the contents of the frame.
+	 */
 	private void initialize() {
-			
-		frame = new JFrame("A játék pillanatnyi állása");
-		frame.setBounds(100, 100, 600, 400);
+		frame = new JFrame("A játék végeredménye");
 		frame.setResizable(false);
+		frame.setBounds(400, 300, 600, 400);
 		frame.setContentPane(new JLabel(new ImageIcon("./resource/otherImages/backgroundScore.jpg")));
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblScore = new JLabel("A pillanatnyi állás:");
-		lblScore.setBounds(21, 21, 155, 14);
+		JLabel lblScore = new JLabel("Végső eredmény:");
+		lblScore.setBounds(21, 21, 118, 14);
 		frame.getContentPane().add(lblScore);
 		
 		jListPlayers = new JList();
@@ -59,6 +60,7 @@ public class ScorePage {
 		btnContinue.setBounds(418, 317, 89, 23);
 		frame.getContentPane().add(btnContinue);
 	}
+
 	
 	public void setPlayerListModell(List<String> players, JList<String> list){
 		
@@ -69,10 +71,4 @@ public class ScorePage {
 		}
 		list.setModel(modell);
 	}
-
-	public JFrame getFrame() {
-		return frame;
-	}
-	
-	
 }

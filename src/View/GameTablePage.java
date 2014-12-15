@@ -66,7 +66,6 @@ public class GameTablePage extends JFrame{
 		
 		client = aktClient;
 		initialize();
-		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -76,8 +75,6 @@ public class GameTablePage extends JFrame{
 				}
 			}
 		});
-
-
 	}
 	
 	public void setEnabledComponents(Object object, boolean state) {
@@ -99,8 +96,9 @@ public class GameTablePage extends JFrame{
 
 	private void initialize() {
 		
-	    frame = new JFrame("Alhambra");
+	    frame = new JFrame("Alhambra Játék Felület");
 	    frame.setBounds(200, 20, 1000, 600);
+	    frame.setResizable(false);
 	    frame.setContentPane(new JLabel(new ImageIcon("./resource/otherImages/background.jpg")));
 	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    frame.getContentPane().setLayout(null);
@@ -451,56 +449,56 @@ public class GameTablePage extends JFrame{
 	    storageBuildingCard_2 = new JLabel();
 	    storageBuildingCard_2.setOpaque(true);
 	    storageBuildingCard_2.setIcon(new ImageIcon("./resource/buildingCards/back.jpg"));
-	    storageBuildingCard_2.setBounds(17, 103, 75, 75);
+	    storageBuildingCard_2.setBounds(12, 103, 75, 75);
 	    labelStorageArea.add(storageBuildingCard_2);
 	    storageAreaCardsJlabelList.add(storageBuildingCard_2);
 	    
 	    storageBuildingCard_3 = new JLabel();
 	    storageBuildingCard_3.setOpaque(true);
 	    storageBuildingCard_3.setIcon(new ImageIcon("./resource/buildingCards/back.jpg"));
-	    storageBuildingCard_3.setBounds(17, 189, 75, 75);
+	    storageBuildingCard_3.setBounds(12, 189, 75, 75);
 	    labelStorageArea.add(storageBuildingCard_3);
 	    storageAreaCardsJlabelList.add(storageBuildingCard_3);
 	    
 	    storageBuildingCard_4 = new JLabel();
 	    storageBuildingCard_4.setOpaque(true);
 	    storageBuildingCard_4.setIcon(new ImageIcon("./resource/buildingCards/back.jpg"));
-	    storageBuildingCard_4.setBounds(17, 275, 75, 75);
+	    storageBuildingCard_4.setBounds(12, 275, 75, 75);
 	    labelStorageArea.add(storageBuildingCard_4);
 	    storageAreaCardsJlabelList.add(storageBuildingCard_4);
 	    
 	    storageBuildingCard_5 = new JLabel();
 	    storageBuildingCard_5.setOpaque(true);
 	    storageBuildingCard_5.setIcon(new ImageIcon("./resource/buildingCards/back.jpg"));
-	    storageBuildingCard_5.setBounds(17, 361, 75, 75);
+	    storageBuildingCard_5.setBounds(12, 361, 75, 75);
 	    labelStorageArea.add(storageBuildingCard_5);
 	    storageAreaCardsJlabelList.add(storageBuildingCard_5);
 	    
 	    storageBuildingCard_6 = new JLabel();
 	    storageBuildingCard_6.setOpaque(true);
 	    storageBuildingCard_6.setIcon(new ImageIcon("./resource/buildingCards/back.jpg"));
-	    storageBuildingCard_6.setBounds(17, 447, 75, 75);
+	    storageBuildingCard_6.setBounds(12, 447, 75, 75);
 	    labelStorageArea.add(storageBuildingCard_6);
 	    storageAreaCardsJlabelList.add(storageBuildingCard_6);
 	    
 	    storageBuildingCard_7 = new JLabel();
 	    storageBuildingCard_7.setOpaque(true);
 	    storageBuildingCard_7.setIcon(new ImageIcon("./resource/buildingCards/back.jpg"));
-	    storageBuildingCard_7.setBounds(17, 533, 75, 75);
+	    storageBuildingCard_7.setBounds(12, 533, 75, 75);
 	    labelStorageArea.add(storageBuildingCard_7);
 	    storageAreaCardsJlabelList.add(storageBuildingCard_7);
 	    
 	    storageBuildingCard_8 = new JLabel();
 	    storageBuildingCard_8.setOpaque(true);
 	    storageBuildingCard_8.setIcon(new ImageIcon("./resource/buildingCards/back.jpg"));
-	    storageBuildingCard_8.setBounds(17, 619, 75, 75);
+	    storageBuildingCard_8.setBounds(12, 619, 75, 75);
 	    labelStorageArea.add(storageBuildingCard_8);
 	    storageAreaCardsJlabelList.add(storageBuildingCard_8);
 	    
 	    storageBuildingCard_9 = new JLabel();
 	    storageBuildingCard_9.setOpaque(true);
 	    storageBuildingCard_9.setIcon(new ImageIcon("./resource/buildingCards/back.jpg"));
-	    storageBuildingCard_9.setBounds(17, 705, 75, 75);
+	    storageBuildingCard_9.setBounds(12, 705, 75, 75);
 	    labelStorageArea.add(storageBuildingCard_9);
 	    storageAreaCardsJlabelList.add(storageBuildingCard_9);
 	    
@@ -664,7 +662,7 @@ public class GameTablePage extends JFrame{
 	    JButton btnBuyBuildingCard = new JButton();
 	    btnBuyBuildingCard.setIcon(new ImageIcon("./resource/otherImages/buyButton.png"));
 	   // btnBuyBuildingCard.setBorderPainted(false);
-	    btnBuyBuildingCard.setOpaque(true);
+	    btnBuyBuildingCard.setOpaque(false);
 	    btnBuyBuildingCard.setBounds(377, 440, 89, 89);
 	    btnBuyBuildingCard.addActionListener(new ActionListener() {
 			
@@ -697,6 +695,30 @@ public class GameTablePage extends JFrame{
 			}
 		});
 	    frame.getContentPane().add(btnBuyBuildingCard);
+	    
+	    JLabel labelCurrency_1 = new JLabel();
+	    labelCurrency_1.setIcon(new ImageIcon("./resource/otherImages/blueMarket.png"));
+	    labelCurrency_1.setOpaque(false);
+	    labelCurrency_1.setBounds(56, 0, 23, 23);
+	    labelBuildingMarket.add(labelCurrency_1);
+	    
+	    JLabel labelCurrency_2 = new JLabel();
+	    labelCurrency_2.setIcon(new ImageIcon("./resource/otherImages/greenMarket.png"));
+	    labelCurrency_2.setOpaque(false);
+	    labelCurrency_2.setBounds(132, 0, 23, 23);
+	    labelBuildingMarket.add(labelCurrency_2);
+	    
+	    JLabel labelCurrency_3 = new JLabel();
+	    labelCurrency_3.setIcon(new ImageIcon("./resource/otherImages/orangeMarket.png"));
+	    labelCurrency_3.setOpaque(false);
+	    labelCurrency_3.setBounds(208, 0, 23, 23);
+	    labelBuildingMarket.add(labelCurrency_3);
+	    
+	    JLabel labelCurrency_4 = new JLabel();
+	    labelCurrency_4.setIcon(new ImageIcon("./resource/otherImages/yellowMarket.png"));
+	    labelCurrency_4.setOpaque(false);
+	    labelCurrency_4.setBounds(285, 0, 23, 23);
+	    labelBuildingMarket.add(labelCurrency_4);
 	      	    
 	}
 
