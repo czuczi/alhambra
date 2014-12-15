@@ -72,7 +72,7 @@ public class GameTablePage extends JFrame{
 
 	private void initialize() {
 		
-	    frame = new JFrame("Alhambra");
+	    frame = new JFrame("Alhambra Játék Felület");
 	    frame.setBounds(200, 20, 1000, 600);
 	    frame.setResizable(false);
 	    frame.setContentPane(new JLabel(new ImageIcon("./resource/otherImages/background.jpg")));
