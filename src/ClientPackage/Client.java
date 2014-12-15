@@ -45,6 +45,13 @@ public class Client {
 
 		try {
 			serverMessage = bf.readLine();
+			if(serverMessage == null) {
+				serverSocket.close();
+				is.close();
+				bf.close();
+				os.close();
+				System.exit(0);
+			}
 		} catch (IOException e) {
 			try {
 				serverSocket.close();
