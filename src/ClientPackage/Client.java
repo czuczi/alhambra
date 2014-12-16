@@ -217,10 +217,10 @@ public class Client {
 							aktPic = "./resource/MoneyCards/"+elements[i]+"/"+elements[i+1]+"/image.jpg";
 							myMoneyCardsPictures.add(aktPic);
 						}
-						gameTablePage.playerMoneyCardBackgroundSetter(myMoneyCardsPictures);
-						gameTablePage.revalidate();
-						gameTablePage.repaint();
 					}
+					gameTablePage.playerMoneyCardBackgroundSetter(myMoneyCardsPictures);
+					gameTablePage.revalidate();
+					gameTablePage.repaint();
 					break;
 					
 				case "moneyPickerViewCards":

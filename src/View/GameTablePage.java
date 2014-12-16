@@ -642,13 +642,6 @@ public class GameTablePage extends JFrame{
 	    frame.getContentPane().add(helpLabel);
 	    helpLabel.setIcon(new ImageIcon("./resource/evaluationCards/evaluationTable.png"));
 	    
-	    JLabel whoLabel_1 = new JLabel("Ide kiírható, hogy kikkel játszik a kliens");
-	    whoLabel_1.setBounds(492, 340, 350, 20);
-	    frame.getContentPane().add(whoLabel_1);
-	    
-	    JLabel whoLabel_2 = new JLabel("Ide meg, hogy ki jön mondjuk");
-	    whoLabel_2.setBounds(492, 370, 350, 20);
-	    frame.getContentPane().add(whoLabel_2);
 	        
 	    JLabel labelBuildingMarket = new JLabel();
 	    labelBuildingMarket.setBounds(10, 420, 360, 135);
