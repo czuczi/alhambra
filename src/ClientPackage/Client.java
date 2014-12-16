@@ -245,6 +245,22 @@ public class Client {
 						gameTablePage.revalidate();
 						gameTablePage.repaint();
 					}
+					break;
+					
+				case "buildingAreaCards":
+					String matrix[][] = new String[21][21];
+					if(elements.length > 1){
+						for(int i=1; i<elements.length-2; i = i+3){
+							if(elements[i+2].equals("null")){
+								matrix[Integer.parseInt(elements[i])][Integer.parseInt(elements[i+1])] = "null";
+							}else{
+								matrix[Integer.parseInt(elements[i])][Integer.parseInt(elements[i+1])] = elements[i+2]+".jpg";
+							}
+						}
+						gameTablePage.buildingAreaCardBackgroundSetter(matrix);
+						gameTablePage.revalidate();
+						gameTablePage.repaint();
+					}					
 					
 					break;
 					
@@ -263,6 +279,10 @@ public class Client {
 					
 					break;
 					
+				case "invalidBuyToAlhambra":
+					JOptionPane.showMessageDialog(null, "Nem sikerült elhelyezni az épületet, az építési szabályok megsértése miatt!");
+					client.sendMessage("tableAttributesRefresh", client.getOs());
+					break;
 					
 				default:
 					shouldBreak = true;
