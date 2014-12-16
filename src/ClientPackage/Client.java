@@ -228,10 +228,10 @@ public class Client {
 						for(int i=1; i<elements.length; i++){
 							buildingMarketPictures.add(elements[i]+".jpg");
 						}
-						gameTablePage.buildingMarketCardBackgroundSetter(buildingMarketPictures);
-						gameTablePage.revalidate();
-						gameTablePage.repaint();
 					}
+					gameTablePage.buildingMarketCardBackgroundSetter(buildingMarketPictures);
+					gameTablePage.revalidate();
+					gameTablePage.repaint();
 					
 					break;
 					
@@ -241,10 +241,10 @@ public class Client {
 						for(int i=1; i<elements.length; i++){
 							storageAreaPictures.add(elements[i]+".jpg");
 						}
-						gameTablePage.storageAreaCardBackgroundSetter(storageAreaPictures);
-						gameTablePage.revalidate();
-						gameTablePage.repaint();
 					}
+					gameTablePage.storageAreaCardBackgroundSetter(storageAreaPictures);
+					gameTablePage.revalidate();
+					gameTablePage.repaint();
 					break;
 					
 				case "buildingAreaCards":
