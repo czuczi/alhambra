@@ -576,43 +576,45 @@ public class GameTablePage extends JFrame{
 					@Override
 					public void mouseClicked(MouseEvent e) {
 						JLabel label = (JLabel)e.getSource();
-						for(int i = 0; i < 21; i++)
-					    {
-					    	for(int j = 0; j < 21; j++)
-					    	{
-					    		if(table[i][j].equals(label)) {
-					    			if(buy){
-					    				client.sendMessage("buyToAlhambra;"+j+";"+i, client.getOs());
-					    				buy = false;
-					    			}else{
-					    				if(label.getIcon() == null){
-					    					if(storageFirst){
-					    						System.out
-														.println("rebuildAddToAlhambra");
-					    						client.sendMessage("rebuildAddToAlhambra;"+j+";"+i+";"+selectedStorage, client.getOs());
-					    						storageFirst = false;
-					    					}else{
-					    						;System.out
-														.println("semmi");
-					    					}
-					    				}else{
-					    					if(storageFirst){
-					    						System.out
-														.println("switchBuilding");
-					    						client.sendMessage("switchBuilding;"+j+";"+i+";"+selectedStorage, client.getOs());
-					    						storageFirst = false;
-					    						alhambraFirst = false;
-					    					}else {
-					    						System.out.println("alhambra first");
-												alhambraFirst = true;
-												matrixX = j;
-												matrixY = i;
-											}
-					    				}
-					    			}
-					    		}
-					    	}
-					    }
+						if(label.isEnabled()) {
+							for(int i = 0; i < 21; i++)
+						    {
+						    	for(int j = 0; j < 21; j++)
+						    	{
+						    		if(table[i][j].equals(label)) {
+						    			if(buy){
+						    				client.sendMessage("buyToAlhambra;"+j+";"+i, client.getOs());
+						    				buy = false;
+						    			}else{
+						    				if(label.getIcon() == null){
+						    					if(storageFirst){
+						    						System.out
+															.println("rebuildAddToAlhambra");
+						    						client.sendMessage("rebuildAddToAlhambra;"+j+";"+i+";"+selectedStorage, client.getOs());
+						    						storageFirst = false;
+						    					}else{
+						    						;System.out
+															.println("semmi");
+						    					}
+						    				}else{
+						    					if(storageFirst){
+						    						System.out
+															.println("switchBuilding");
+						    						client.sendMessage("switchBuilding;"+j+";"+i+";"+selectedStorage, client.getOs());
+						    						storageFirst = false;
+						    						alhambraFirst = false;
+						    					}else {
+						    						System.out.println("alhambra first");
+													alhambraFirst = true;
+													matrixX = j;
+													matrixY = i;
+												}
+						    				}
+						    			}
+						    		}
+						    	}
+						    }
+						}
 					}
 				});
 	    		panelBuildingArea.add(table[i][j]);
@@ -846,23 +848,26 @@ public class GameTablePage extends JFrame{
 				
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					if(alhambraFirst){
-						for(int j=0; j<storageAreaCardsJlabelList.size(); j++){
-							if(storageAreaCardsJlabelList.get(j).equals((JLabel)e.getSource())){
-								selectedStorage = j;
+					JLabel label = (JLabel)e.getSource();
+					if(label.isEnabled()) {
+						if(alhambraFirst){
+							for(int j=0; j<storageAreaCardsJlabelList.size(); j++){
+								if(storageAreaCardsJlabelList.get(j).equals(label)){
+									selectedStorage = j;
+								}
+							}
+							client.sendMessage("switchBuilding;"+matrixX+";"+matrixY+";"+selectedStorage, client.getOs());
+							alhambraFirst = false;
+						}else{
+							storageFirst = true;
+							for(int j=0; j<storageAreaCardsJlabelList.size(); j++){
+								if(storageAreaCardsJlabelList.get(j).equals(label)){
+									selectedStorage = j;
+								}
 							}
 						}
-						client.sendMessage("switchBuilding;"+matrixX+";"+matrixY+";"+selectedStorage, client.getOs());
-						alhambraFirst = false;
-					}else{
-						storageFirst = true;
-						for(int j=0; j<storageAreaCardsJlabelList.size(); j++){
-							if(storageAreaCardsJlabelList.get(j).equals((JLabel)e.getSource())){
-								selectedStorage = j;
-							}
-						}
+						
 					}
-					
 				}
 			});
 		}
