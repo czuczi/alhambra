@@ -53,6 +53,8 @@ public class GameTablePage extends JFrame{
 	private JLabel storageBuildingCard_8;
 	private JLabel storageBuildingCard_9;
 	
+	private  JLabel [][] table;
+	
 	
 	private List<JLabel> moneyCardJlabelList = new LinkedList<>();
 	private List<JRadioButton> moneyCardJRadioButtonList = new LinkedList<>();
@@ -517,7 +519,7 @@ public class GameTablePage extends JFrame{
 	    frame.getContentPane().add(spBuildingArea);
 	    panelBuildingArea.setLayout(null);
 	    
-	    JLabel [][] table = new JLabel[21][21];
+	    table = new JLabel[21][21];
 	    
 	    for(int i = 0; i < 21; i++)
 	    {
@@ -557,8 +559,17 @@ public class GameTablePage extends JFrame{
 					@Override
 					public void mouseClicked(MouseEvent e) {
 						System.out.println("BÁJ TU ALHAMBRA");
-						client.sendMessage("buyToAlhambra;"+matrixX+";"+matrixY, client.getOs());
-						
+						JLabel label = (JLabel)e.getSource();
+						for(int i = 0; i < 21; i++)
+					    {
+					    	for(int j = 0; j < 21; j++)
+					    	{
+					    		if(table[i][j].equals(label)) {
+					    			System.out.println(i+"\t"+j);
+					    			client.sendMessage("buyToAlhambra;"+j+";"+i, client.getOs());
+					    		}
+					    	}
+					    }
 					}
 				});
 	    		panelBuildingArea.add(table[i][j]);
@@ -763,5 +774,18 @@ public class GameTablePage extends JFrame{
 			storageAreaCardsJlabelList.get(i).setIcon(new ImageIcon(backgrounds.get(i)));
 			
 		}
+	}
+	
+	public void buildingAreaCardBackgroundSetter(String[][] matrix){
+		for(int i=0; i<matrix.length; i++){
+			for(int j=0; j<matrix[i].length; j++){
+				if(matrix[i][j].equals("null")){
+					table[i][j].setBackground(new Color(199,153,116));
+				}else{
+					table[i][j].setIcon(new ImageIcon(matrix[i][j]));
+				}
+			}
+		}
+		table[10][10].setIcon(new ImageIcon("./resource/buildingCards/start.jpg"));
 	}
 }
