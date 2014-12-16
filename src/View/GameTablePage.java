@@ -848,23 +848,26 @@ public class GameTablePage extends JFrame{
 				
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					if(alhambraFirst){
-						for(int j=0; j<storageAreaCardsJlabelList.size(); j++){
-							if(storageAreaCardsJlabelList.get(j).equals((JLabel)e.getSource())){
-								selectedStorage = j;
+					JLabel label = (JLabel)e.getSource();
+					if(label.isEnabled()) {
+						if(alhambraFirst){
+							for(int j=0; j<storageAreaCardsJlabelList.size(); j++){
+								if(storageAreaCardsJlabelList.get(j).equals(label)){
+									selectedStorage = j;
+								}
+							}
+							client.sendMessage("switchBuilding;"+matrixX+";"+matrixY+";"+selectedStorage, client.getOs());
+							alhambraFirst = false;
+						}else{
+							storageFirst = true;
+							for(int j=0; j<storageAreaCardsJlabelList.size(); j++){
+								if(storageAreaCardsJlabelList.get(j).equals(label)){
+									selectedStorage = j;
+								}
 							}
 						}
-						client.sendMessage("switchBuilding;"+matrixX+";"+matrixY+";"+selectedStorage, client.getOs());
-						alhambraFirst = false;
-					}else{
-						storageFirst = true;
-						for(int j=0; j<storageAreaCardsJlabelList.size(); j++){
-							if(storageAreaCardsJlabelList.get(j).equals((JLabel)e.getSource())){
-								selectedStorage = j;
-							}
-						}
+						
 					}
-					
 				}
 			});
 		}
