@@ -34,6 +34,7 @@ public class Client {
 	private List<String> playerListInRoom;
 	
 	private int numberOfEvaluation = 0;
+	private GameTablePage gameTablePage = null;
 	
 
 	public void sendMessage(String message, DataOutputStream os) {
@@ -125,6 +126,13 @@ public class Client {
 							if(elements[1].equals("RoomPage")){
 								roomPage.getFrame().setVisible(false);
 								roomPage.getFrame().dispose();
+							}else{
+								if(elements[1].equals("GameTablePage")){				//END OF A GAME
+									gameTablePage.getFrame().setVisible(false);
+									gameTablePage.getFrame().dispose();
+									finalScorePage.getFrame().setVisible(false);
+									finalScorePage.getFrame().dispose();
+								}
 							}
 						}
 																						
@@ -306,11 +314,18 @@ public class Client {
 					client.numberOfEvaluation++;
 					if(client.numberOfEvaluation < 3){
 						for(int i=1; i<elements.length-1; i=i+2){
-							tmpString = elements[i]+"\t\t\t"+elements[i+1];
+							tmpString = elements[i]+"              "+elements[i+1];
 							result.add(tmpString);
 						}
 						scorePage = new ScorePage(client);
 						scorePage.setPlayerListModell(result);
+					}else{
+						for(int i=1; i<elements.length-1; i=i+2){
+							tmpString = elements[i]+"              "+elements[i+1];
+							result.add(tmpString);
+						}
+						finalScorePage = new FinalScorePage(client);
+						finalScorePage.setPlayerListModell(result);
 					}
 					
 					break;
@@ -358,6 +373,14 @@ public class Client {
 
 	public void setPlayerListInRoom(List<String> playerListInRoom) {
 		this.playerListInRoom = playerListInRoom;
+	}
+
+	public GameTablePage getGameTablePage() {
+		return gameTablePage;
+	}
+
+	public void setGameTablePage(GameTablePage gameTablePage) {
+		this.gameTablePage = gameTablePage;
 	}
 	
 	

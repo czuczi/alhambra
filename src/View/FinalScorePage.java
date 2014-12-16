@@ -1,6 +1,8 @@
 package View;
 
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 
 import javax.swing.DefaultListModel;
@@ -18,6 +20,7 @@ public class FinalScorePage {
 	private JFrame frame;
 	private JList jListPlayers;
 	private Client client;
+	private JButton btnContinue;
 
 	public FinalScorePage(Client aktClient) {
 		
@@ -56,19 +59,38 @@ public class FinalScorePage {
 		scrollPanePlayers.setBounds(74, 57, 433, 232);
 		frame.getContentPane().add(scrollPanePlayers);
 		
-		JButton btnContinue = new JButton("Folytatás");
+		btnContinue = new JButton("Folytatás");
 		btnContinue.setBounds(418, 317, 89, 23);
+		btnContinue.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				client.sendMessage("endGame", client.getOs());
+				btnContinue.setEnabled(false);
+				
+			}
+		});
 		frame.getContentPane().add(btnContinue);
 	}
 
 	
-	public void setPlayerListModell(List<String> players, JList<String> list){
+	public void setPlayerListModell(List<String> players){
 		
 		DefaultListModel<String> modell = new DefaultListModel<>();
 		
 		for(String name : players){
 			modell.addElement(name);
 		}
-		list.setModel(modell);
+		jListPlayers.setModel(modell);
 	}
+
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
+	}
+	
+	
 }

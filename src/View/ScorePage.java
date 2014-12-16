@@ -1,6 +1,8 @@
 package View;
 
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 
 import javax.swing.DefaultListModel;
@@ -57,6 +59,15 @@ public class ScorePage {
 		
 		JButton btnContinue = new JButton("Folytatás");
 		btnContinue.setBounds(418, 317, 89, 23);
+		btnContinue.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
+				frame.dispose();
+				
+			}
+		});
 		frame.getContentPane().add(btnContinue);
 	}
 	
