@@ -14,10 +14,12 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import View.FinalScorePage;
 import View.GameTablePage;
 import View.Login;
 import View.RoomManagerPage;
 import View.RoomPage;
+import View.ScorePage;
 
 public class Client {
 	
@@ -30,6 +32,9 @@ public class Client {
 	
 	private List<String> roomList;
 	private List<String> playerListInRoom;
+	
+	private int numberOfEvaluation = 0;
+	
 
 	public void sendMessage(String message, DataOutputStream os) {
 		try {
@@ -83,6 +88,8 @@ public class Client {
 			RoomManagerPage roomManagerPage = null;
 			RoomPage roomPage = null;
 			GameTablePage gameTablePage = null;
+			ScorePage scorePage = null;
+			FinalScorePage finalScorePage = null;
 			boolean shouldBreak = false;
 			
 			while (true) {
@@ -291,6 +298,21 @@ public class Client {
 					
 				case "switchFailed":
 					JOptionPane.showMessageDialog(null, "Nem sikerült megcserélni a két épületlapot, az építési szabályok megsértése miatt!");
+					break;
+					
+				case "evaluation":
+					List<String> result = new LinkedList<>();
+					String tmpString;
+					client.numberOfEvaluation++;
+					if(client.numberOfEvaluation < 3){
+						for(int i=1; i<elements.length-1; i=i+2){
+							tmpString = elements[i]+"\t\t\t"+elements[i+1];
+							result.add(tmpString);
+						}
+						scorePage = new ScorePage(client);
+						scorePage.setPlayerListModell(result);
+					}
+					
 					break;
 					
 				default:

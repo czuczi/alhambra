@@ -60,14 +60,14 @@ public class ScorePage {
 		frame.getContentPane().add(btnContinue);
 	}
 	
-	public void setPlayerListModell(List<String> players, JList<String> list){
+	public void setPlayerListModell(List<String> players){
 		
 		DefaultListModel<String> modell = new DefaultListModel<>();
 		
 		for(String name : players){
 			modell.addElement(name);
 		}
-		list.setModel(modell);
+		jListPlayers.setModel(modell);
 	}
 
 	public JFrame getFrame() {
