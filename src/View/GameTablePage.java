@@ -455,9 +455,10 @@ public class GameTablePage extends JFrame{
 					buy = false;
 				}else{
 					if(alhambraFirst){
+						System.out.println("remove");
 						client.sendMessage("removeToStorage;"+matrixX+";"+matrixY, client.getOs());
 						alhambraFirst = false;
-						storageFirst = true;
+						storageFirst = false;
 					}else{
 						;
 					}
@@ -809,7 +810,17 @@ public class GameTablePage extends JFrame{
 		for(int i=0; i<backgrounds.size(); i++){
 			tmp = i;
 			buildingMarketJlabelList.get(i).setIcon(new ImageIcon(backgrounds.get(i)));
-			buildingMarketJlabelList.get(i).addMouseListener(new MouseListener() {
+			
+			if(backgrounds.get(i).equals("./resource/buildingCards/back.jpg")) {
+				buildingMarketJRadioButtonList.get(i).setEnabled(false);
+			}
+		}
+	}
+	
+	public void storageAreaCardBackgroundSetter(List<String> backgrounds){
+		for(int i=0; i<backgrounds.size(); i++){
+			storageAreaCardsJlabelList.get(i).setIcon(new ImageIcon(backgrounds.get(i)));
+			storageAreaCardsJlabelList.get(i).addMouseListener(new MouseListener() {
 				
 				@Override
 				public void mouseReleased(MouseEvent e) {
@@ -838,8 +849,8 @@ public class GameTablePage extends JFrame{
 				@Override
 				public void mouseClicked(MouseEvent e) {
 					if(alhambraFirst){
-						for(int j=0; j<buildingMarketJlabelList.size(); j++){
-							if(buildingMarketJlabelList.get(j).equals((JLabel)e.getSource())){
+						for(int j=0; j<storageAreaCardsJlabelList.size(); j++){
+							if(storageAreaCardsJlabelList.get(j).equals((JLabel)e.getSource())){
 								selectedStorage = j;
 							}
 						}
@@ -847,8 +858,8 @@ public class GameTablePage extends JFrame{
 						alhambraFirst = false;
 					}else{
 						storageFirst = true;
-						for(int j=0; j<buildingMarketJlabelList.size(); j++){
-							if(buildingMarketJlabelList.get(j).equals((JLabel)e.getSource())){
+						for(int j=0; j<storageAreaCardsJlabelList.size(); j++){
+							if(storageAreaCardsJlabelList.get(j).equals((JLabel)e.getSource())){
 								selectedStorage = j;
 							}
 						}
@@ -856,16 +867,6 @@ public class GameTablePage extends JFrame{
 					
 				}
 			});
-			if(backgrounds.get(i).equals("./resource/buildingCards/back.jpg")) {
-				buildingMarketJRadioButtonList.get(i).setEnabled(false);
-			}
-		}
-	}
-	
-	public void storageAreaCardBackgroundSetter(List<String> backgrounds){
-		for(int i=0; i<backgrounds.size(); i++){
-			storageAreaCardsJlabelList.get(i).setIcon(new ImageIcon(backgrounds.get(i)));
-			
 		}
 		for(int i = backgrounds.size(); i < storageAreaCardsJlabelList.size(); i++) {
 			storageAreaCardsJlabelList.get(i).setIcon(new ImageIcon("./resource/buildingCards/back.jpg"));
