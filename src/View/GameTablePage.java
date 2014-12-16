@@ -61,9 +61,15 @@ public class GameTablePage extends JFrame{
 	private List<JRadioButton> playerMoneyCardsJRadioButtonList = new LinkedList<>();
 	private List<JLabel> storageAreaCardsJlabelList = new LinkedList<>();
 	
+	private boolean buy;
+	private boolean alhambraFirst;
+	private boolean storageFirst;
+	private int selectedStorage;
 	
 	private int matrixX, matrixY;
 
+	private int tmp;
+	
 	public GameTablePage(Client aktClient) {
 		
 		client = aktClient;
@@ -441,8 +447,17 @@ public class GameTablePage extends JFrame{
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				System.out.println("BÁJ TU SZTORIDZSERIÖ");
-				client.sendMessage("buyToStorageArea", client.getOs());
+				if(buy){
+					client.sendMessage("buyToStorageArea", client.getOs());
+					buy = false;
+				}else{
+					if(alhambraFirst){
+						client.sendMessage("removeToStorage;"+matrixX+";"+matrixY, client.getOs());
+						alhambraFirst = false;
+					}else{
+						;
+					}
+				}
 				
 			}
 		});
@@ -559,15 +574,40 @@ public class GameTablePage extends JFrame{
 					
 					@Override
 					public void mouseClicked(MouseEvent e) {
-						System.out.println("BÁJ TU ALHAMBRA");
 						JLabel label = (JLabel)e.getSource();
 						for(int i = 0; i < 21; i++)
 					    {
 					    	for(int j = 0; j < 21; j++)
 					    	{
 					    		if(table[i][j].equals(label)) {
-					    			System.out.println(i+"\t"+j);
-					    			client.sendMessage("buyToAlhambra;"+j+";"+i, client.getOs());
+					    			if(buy){
+					    				client.sendMessage("buyToAlhambra;"+j+";"+i, client.getOs());
+					    				buy = false;
+					    			}else{
+					    				if(label.getIcon() == null){
+					    					if(storageFirst){
+					    						System.out
+														.println("rebuildAddToAlhambra");
+					    						client.sendMessage("rebuildAddToAlhambra;"+j+";"+i+";"+selectedStorage, client.getOs());
+					    						storageFirst = false;
+					    					}else{
+					    						;System.out
+														.println("semmi");
+					    					}
+					    				}else{
+					    					if(storageFirst){
+					    						System.out
+														.println("switchBuilding");
+					    						client.sendMessage("switchBuilding;"+j+";"+i+";"+selectedStorage, client.getOs());
+					    						storageFirst = false;
+					    					}else {
+					    						System.out.println("alhambra first");
+												alhambraFirst = true;
+												matrixX = j;
+												matrixY = i;
+											}
+					    				}
+					    			}
 					    		}
 					    	}
 					    }
@@ -702,6 +742,7 @@ public class GameTablePage extends JFrame{
 						}
 					}
 					client.sendMessage("buyBuildingCard"+message, client.getOs());
+					buy = true;
 				}
 			}
 		});
@@ -754,7 +795,55 @@ public class GameTablePage extends JFrame{
 	
 	public void buildingMarketCardBackgroundSetter(List<String> backgrounds){
 		for(int i=0; i<backgrounds.size(); i++){
+			tmp = i;
 			buildingMarketJlabelList.get(i).setIcon(new ImageIcon(backgrounds.get(i)));
+			buildingMarketJlabelList.get(i).addMouseListener(new MouseListener() {
+				
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					// TODO Auto-generated method stub
+					
+				}
+				
+				@Override
+				public void mousePressed(MouseEvent e) {
+					// TODO Auto-generated method stub
+					
+				}
+				
+				@Override
+				public void mouseExited(MouseEvent e) {
+					// TODO Auto-generated method stub
+					
+				}
+				
+				@Override
+				public void mouseEntered(MouseEvent e) {
+					// TODO Auto-generated method stub
+					
+				}
+				
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					if(alhambraFirst){
+						for(int j=0; j<buildingMarketJlabelList.size(); j++){
+							if(buildingMarketJlabelList.get(j).equals((JLabel)e.getSource())){
+								selectedStorage = j;
+							}
+						}
+						client.sendMessage("switchBuilding;"+matrixX+";"+matrixY+";"+selectedStorage, client.getOs());
+						alhambraFirst = false;
+					}else{
+						storageFirst = true;
+						for(int j=0; j<buildingMarketJlabelList.size(); j++){
+							if(buildingMarketJlabelList.get(j).equals((JLabel)e.getSource())){
+								selectedStorage = j;
+							}
+						}
+					}
+					
+				}
+			});
 		}
 	}
 	
@@ -776,4 +865,14 @@ public class GameTablePage extends JFrame{
 		}
 		table[10][10].setIcon(new ImageIcon("./resource/buildingCards/start.jpg"));
 	}
+
+	public boolean isBuy() {
+		return buy;
+	}
+
+	public void setBuy(boolean buy) {
+		this.buy = buy;
+	}
+	
+	
 }

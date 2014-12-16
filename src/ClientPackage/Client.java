@@ -273,6 +273,7 @@ public class Client {
 				case "isEnoughMoney":
 					if(elements[1].equals("no")){
 						JOptionPane.showMessageDialog(null, "Túl kevés pénzt választottál ki!");
+						gameTablePage.setBuy(false);
 					}else{
 						JOptionPane.showMessageDialog(null, "Válassz, hová szeretnéd elhelyezni. Kattints az alhambrádba, vagy a tartalékmező üres mezőjére!");
 					}
@@ -282,6 +283,14 @@ public class Client {
 				case "invalidBuyToAlhambra":
 					JOptionPane.showMessageDialog(null, "Nem sikerült elhelyezni az épületet, az építési szabályok megsértése miatt!");
 					client.sendMessage("tableAttributesRefresh", client.getOs());
+					break;
+					
+				case "removeFailed":
+					JOptionPane.showMessageDialog(null, "Nem sikerült eltávolítani az épületet, az építési szabályok megsértése miatt!");
+					break;
+					
+				case "switchFailed":
+					JOptionPane.showMessageDialog(null, "Nem sikerült megcserélni a két épületlapot, az építési szabályok megsértése miatt!");
 					break;
 					
 				default:
