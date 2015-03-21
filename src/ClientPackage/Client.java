@@ -47,7 +47,7 @@ public class Client {
 
 	}
 
-	public void recieveMessage() {
+	public void receiveMessage() {
 
 		try {
 			serverMessage = bf.readLine();
@@ -95,7 +95,7 @@ public class Client {
 			
 			while (true) {
 	//			System.out.println("kliens várakozik üzenetre: "+client.serverMessage);
-				client.recieveMessage();
+				client.receiveMessage();
 				System.out.println("kliens üzenetet kapott a szervertől: "+client.serverMessage);
 				String[] elements = client.serverMessage.split(";");
 				client.serverRequest = elements[0];
