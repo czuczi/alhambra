@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
 
 import View.FinalScorePage;
 import View.GameTablePage;
+import View.GiftCards;
 import View.Login;
 import View.RoomManagerPage;
 import View.RoomPage;
@@ -29,6 +30,8 @@ public class Client {
 	private BufferedReader bf = null;
 	private String serverMessage;
 	private String serverRequest;
+	private boolean isGiftBuild = false;
+	private String giftMessage = "";
 	
 	private List<String> roomList;
 	private List<String> playerListInRoom;
@@ -90,6 +93,7 @@ public class Client {
 			RoomPage roomPage = null;
 			GameTablePage gameTablePage = null;
 			ScorePage scorePage = null;
+			GiftCards giftCards = null;
 			FinalScorePage finalScorePage = null;
 			boolean shouldBreak = false;
 			
@@ -307,6 +311,33 @@ public class Client {
 				case "switchFailed":
 					JOptionPane.showMessageDialog(null, "Nem sikerült megcserélni a két épületlapot, az építési szabályok megsértése miatt!");
 					break;
+				
+				case "gifts":
+					client.giftMessage = "";
+					client.setGiftBuild(false);
+					List<String> imageList = new LinkedList<String>();
+					for(int i=1; i < elements.length; i++){
+						imageList.add(elements[i]+".jpg");
+						System.out.println(imageList.get(i-1));
+					}
+					if(giftCards == null){
+						giftCards = new GiftCards(client);
+						giftCards.setBackGrounds(imageList);
+						giftCards.revalidate();
+						giftCards.repaint();
+					}else{
+						giftCards.setBackGrounds(imageList);
+						giftCards.revalidate();
+						giftCards.repaint();
+					}
+					
+					break;
+					
+				case "giftClose":
+					giftCards.getFrame().setVisible(false);
+					giftCards.getFrame().dispose();
+					
+					break;
 					
 				case "evaluation":
 					List<String> result = new LinkedList<>();
@@ -381,6 +412,22 @@ public class Client {
 
 	public void setGameTablePage(GameTablePage gameTablePage) {
 		this.gameTablePage = gameTablePage;
+	}
+
+	public boolean isGiftBuild() {
+		return isGiftBuild;
+	}
+
+	public void setGiftBuild(boolean isGiftBuild) {
+		this.isGiftBuild = isGiftBuild;
+	}
+
+	public String getGiftMessage() {
+		return giftMessage;
+	}
+
+	public void setGiftMessage(String giftMessage) {
+		this.giftMessage = giftMessage;
 	}
 	
 	

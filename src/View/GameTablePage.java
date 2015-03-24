@@ -450,17 +450,23 @@ public class GameTablePage extends JFrame{
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if(buy){
-					client.sendMessage("buyToStorageArea", client.getOs());
-					buy = false;
+				if(client.isGiftBuild()){						
+					String[] tomb = client.getGiftMessage().split(";");				//ajándék építése a tartalékmezőre
+					String message = tomb[0] +";" + "buildToStorageArea;" + tomb[1];
+					client.sendMessage(message, client.getOs());
 				}else{
-					if(alhambraFirst){
-						System.out.println("remove");
-						client.sendMessage("removeToStorage;"+matrixX+";"+matrixY, client.getOs());
-						alhambraFirst = false;
-						storageFirst = false;
+					if(buy){
+						client.sendMessage("buyToStorageArea", client.getOs());
+						buy = false;
 					}else{
-						;
+						if(alhambraFirst){
+							System.out.println("remove");
+							client.sendMessage("removeToStorage;"+matrixX+";"+matrixY, client.getOs());
+							alhambraFirst = false;
+							storageFirst = false;
+						}else{
+							;
+						}
 					}
 				}
 				
@@ -588,18 +594,15 @@ public class GameTablePage extends JFrame{
 						    			}else{
 						    				if(label.getIcon() == null){
 						    					if(storageFirst){
-						    						System.out
-															.println("rebuildAddToAlhambra");
+						    						System.out.println("rebuildAddToAlhambra");
 						    						client.sendMessage("rebuildAddToAlhambra;"+j+";"+i+";"+selectedStorage, client.getOs());
 						    						storageFirst = false;
 						    					}else{
-						    						;System.out
-															.println("semmi");
+						    						;
 						    					}
 						    				}else{
 						    					if(storageFirst){
-						    						System.out
-															.println("switchBuilding");
+						    						System.out.println("switchBuilding");
 						    						client.sendMessage("switchBuilding;"+j+";"+i+";"+selectedStorage, client.getOs());
 						    						storageFirst = false;
 						    						alhambraFirst = false;
