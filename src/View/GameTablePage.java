@@ -588,31 +588,36 @@ public class GameTablePage extends JFrame{
 						    	for(int j = 0; j < 21; j++)
 						    	{
 						    		if(table[i][j].equals(label)) {
-						    			if(buy){
-						    				client.sendMessage("buyToAlhambra;"+j+";"+i, client.getOs());
-						    				buy = false;
+						    			if(client.isGiftBuild()){				//ha kattintok a felületre és gift osztás van
+						    				String[] tomb = client.getGiftMessage().split(";");
+						    				client.sendMessage(tomb[0]+";"+"buildToAlhambra;"+j+";"+i+";"+tomb[1], client.getOs());
 						    			}else{
-						    				if(label.getIcon() == null){
-						    					if(storageFirst){
-						    						System.out.println("rebuildAddToAlhambra");
-						    						client.sendMessage("rebuildAddToAlhambra;"+j+";"+i+";"+selectedStorage, client.getOs());
-						    						storageFirst = false;
-						    					}else{
-						    						;
-						    					}
-						    				}else{
-						    					if(storageFirst){
-						    						System.out.println("switchBuilding");
-						    						client.sendMessage("switchBuilding;"+j+";"+i+";"+selectedStorage, client.getOs());
-						    						storageFirst = false;
-						    						alhambraFirst = false;
-						    					}else {
-						    						System.out.println("alhambra first");
-													alhambraFirst = true;
-													matrixX = j;
-													matrixY = i;
-												}
-						    				}
+							    			if(buy){
+							    				client.sendMessage("buyToAlhambra;"+j+";"+i, client.getOs());
+							    				buy = false;
+							    			}else{
+							    				if(label.getIcon() == null){
+							    					if(storageFirst){
+							    						System.out.println("rebuildAddToAlhambra");
+							    						client.sendMessage("rebuildAddToAlhambra;"+j+";"+i+";"+selectedStorage, client.getOs());
+							    						storageFirst = false;
+							    					}else{
+							    						;
+							    					}
+							    				}else{
+							    					if(storageFirst){
+							    						System.out.println("switchBuilding");
+							    						client.sendMessage("switchBuilding;"+j+";"+i+";"+selectedStorage, client.getOs());
+							    						storageFirst = false;
+							    						alhambraFirst = false;
+							    					}else {
+							    						System.out.println("alhambra first");
+														alhambraFirst = true;
+														matrixX = j;
+														matrixY = i;
+													}
+							    				}
+							    			}
 						    			}
 						    		}
 						    	}

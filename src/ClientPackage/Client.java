@@ -318,7 +318,6 @@ public class Client {
 					List<String> imageList = new LinkedList<String>();
 					for(int i=1; i < elements.length; i++){
 						imageList.add(elements[i]+".jpg");
-						System.out.println(imageList.get(i-1));
 					}
 					if(giftCards == null){
 						giftCards = new GiftCards(client);
