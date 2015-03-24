@@ -42,6 +42,7 @@ public class RoomManagerPage extends JFrame {
 	private JFrame frame;
 	private JTextField textFieldNewRoomName;
 	private Client client;
+	private JRadioButton radioButton_2;
 	private JRadioButton radioButton_3;
 	private JRadioButton radioButton_4;
 	private JRadioButton radioButton_5;
@@ -108,7 +109,7 @@ public class RoomManagerPage extends JFrame {
 
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if(!textFieldNewRoomName.getText().isEmpty() && (radioButton_3.isSelected() || radioButton_4.isSelected() || radioButton_5.isSelected() || radioButton_6.isSelected())){
+				if(!textFieldNewRoomName.getText().isEmpty() && (radioButton_2.isSelected()) || (radioButton_3.isSelected() || radioButton_4.isSelected() || radioButton_5.isSelected() || radioButton_6.isSelected())){
 					buttonUjSzoba.setEnabled(true);
 				}else {
 					buttonUjSzoba.setEnabled(false);
@@ -127,6 +128,23 @@ public class RoomManagerPage extends JFrame {
 		lblMaximumPlace.setBounds(258, 40, 109, 14);
 		contentPane.add(lblMaximumPlace);
 		
+		radioButton_2 = new JRadioButton("2");
+		radioButton_2.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				maxFerohely = 2;
+				if(!textFieldNewRoomName.getText().isEmpty()){
+					buttonUjSzoba.setEnabled(true);
+				}
+				radioButton_3.setSelected(false);
+				radioButton_4.setSelected(false);
+				radioButton_5.setSelected(false);
+				radioButton_6.setSelected(false);
+			}
+		});
+		radioButton_2.setBounds(258, 59, 42, 23);
+		contentPane.add(radioButton_2);
+		
 		radioButton_3 = new JRadioButton("3");
 		radioButton_3.addActionListener(new ActionListener() {
 			@Override
@@ -135,12 +153,13 @@ public class RoomManagerPage extends JFrame {
 				if(!textFieldNewRoomName.getText().isEmpty()){
 					buttonUjSzoba.setEnabled(true);
 				}
+				radioButton_2.setSelected(false);
 				radioButton_4.setSelected(false);
 				radioButton_5.setSelected(false);
 				radioButton_6.setSelected(false);
 			}
 		});
-		radioButton_3.setBounds(258, 59, 42, 23);
+		radioButton_3.setBounds(302, 59, 42, 23);
 		contentPane.add(radioButton_3);
 
 		radioButton_4 = new JRadioButton("4");
@@ -151,12 +170,13 @@ public class RoomManagerPage extends JFrame {
 				if(!textFieldNewRoomName.getText().isEmpty()){
 					buttonUjSzoba.setEnabled(true);
 				}
+				radioButton_2.setSelected(false);
 				radioButton_3.setSelected(false);
 				radioButton_5.setSelected(false);
 				radioButton_6.setSelected(false);
 			}
 		});
-		radioButton_4.setBounds(302, 59, 42, 23);
+		radioButton_4.setBounds(346, 59, 42, 23);
 		contentPane.add(radioButton_4);
 		
 		radioButton_5 = new JRadioButton("5");
@@ -167,12 +187,13 @@ public class RoomManagerPage extends JFrame {
 				if(!textFieldNewRoomName.getText().isEmpty()){
 					buttonUjSzoba.setEnabled(true);
 				}
+				radioButton_2.setSelected(false);
 				radioButton_3.setSelected(false);
 				radioButton_4.setSelected(false);
 				radioButton_6.setSelected(false);
 			}
 		});
-		radioButton_5.setBounds(346, 59, 42, 23);
+		radioButton_5.setBounds(390, 59, 42, 23);
 		contentPane.add(radioButton_5);
 
 		radioButton_6 = new JRadioButton("6");
@@ -183,12 +204,13 @@ public class RoomManagerPage extends JFrame {
 				if(!textFieldNewRoomName.getText().isEmpty()){
 					buttonUjSzoba.setEnabled(true);
 				}
+				radioButton_2.setSelected(false);
 				radioButton_3.setSelected(false);
 				radioButton_4.setSelected(false);
 				radioButton_5.setSelected(false);
 			}
 		});
-		radioButton_6.setBounds(390, 59, 42, 23);
+		radioButton_6.setBounds(434, 59, 42, 23);
 		contentPane.add(radioButton_6);
 
 		buttonUjSzoba = new JButton("Új szoba");
