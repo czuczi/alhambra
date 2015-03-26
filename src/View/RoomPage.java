@@ -51,7 +51,7 @@ public class RoomPage extends JFrame {
 		frame = new JFrame();
 		frame.setTitle("Szoba Felület");
 		frame.setResizable(false);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frame.setBounds(100, 100, 450, 300);
 		
 		contentPane = new JPanel();

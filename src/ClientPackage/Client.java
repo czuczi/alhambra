@@ -111,7 +111,7 @@ public class Client {
 						System.out.println("logout success");
 						roomManagerPage.getFrame().setVisible(false);
 						roomManagerPage.getFrame().dispose();
-						login = new Login(client);
+						System.exit(0);
 					}
 					break;
 				case "showRoomManagerPage":												
@@ -131,19 +131,24 @@ public class Client {
 								roomPage.getFrame().setVisible(false);
 								roomPage.getFrame().dispose();
 							}else{
-								if(elements[1].equals("GameTablePage")){				//END OF A GAME
+								if(elements[1].equals("GameTablePage")){					
 									gameTablePage.getFrame().setVisible(false);
 									gameTablePage.getFrame().dispose();
-									finalScorePage.getFrame().setVisible(false);
-									finalScorePage.getFrame().dispose();
+									if(!elements[2].equals("forcedExit")){		//END OF A GAME
+										finalScorePage.getFrame().setVisible(false);
+										finalScorePage.getFrame().dispose();
+									}
 								}
 							}
-						}
-																						
+						}																
 					}
 					client.roomList = new ArrayList<>(); //szobalista init
 					if(elements.length > 2){
-						for(int i=2; i<elements.length; i++){
+						int startIndex = 2;
+						if(elements[2].equals("forcedExit")){				//ha valaki kilépett és az akt kliens visszadobódik a roomManagerPage-re
+							startIndex = 3;
+						}
+						for(int i=startIndex; i<elements.length; i++){
 							client.roomList.add(elements[i]);
 						}
 					}

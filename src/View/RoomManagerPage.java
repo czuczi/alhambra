@@ -81,7 +81,7 @@ public class RoomManagerPage extends JFrame {
 		frame.setTitle("Szobakezelő Felület");
 		frame.setBounds(100, 100, 594, 407);
 		frame.setResizable(false);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
