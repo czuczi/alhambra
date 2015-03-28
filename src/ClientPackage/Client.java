@@ -331,6 +331,7 @@ public class Client {
 						giftCards.repaint();
 					}else{
 						giftCards.setBackGrounds(imageList);
+						giftCards.setRadioButtonsToNull();
 						giftCards.revalidate();
 						giftCards.repaint();
 					}

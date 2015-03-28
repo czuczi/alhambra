@@ -185,5 +185,9 @@ public class GiftCards extends JFrame {
 		this.frame = frame;
 	}
 	
+	public void setRadioButtonsToNull(){
+			bg.clearSelection();
+	}
+	
 	
 }

@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 
@@ -49,7 +50,11 @@ public class Login {
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(!loginField.getText().isEmpty()){
-					client.sendMessage("login;login;" + loginField.getText(), client.getOs());
+					if(loginField.getText().equals("ro-bot")){
+						JOptionPane.showMessageDialog(null, "Ez a felhasználónév a rendszer számára van fenntartva!");
+					}else{
+						client.sendMessage("login;login;" + loginField.getText(), client.getOs());
+					}
 					
 				}
 			}
