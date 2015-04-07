@@ -108,10 +108,19 @@ public class Client {
 					if(elements[1].equals("login")){									//LOGIN FAILED
 						JOptionPane.showMessageDialog(null, "Már van ilyen felahsználó!");
 					} else{																//LOGOUT
-						System.out.println("logout success");
-						roomManagerPage.getFrame().setVisible(false);
-						roomManagerPage.getFrame().dispose();
+						if(elements[1].equals("RoomManagerPage")){
+							System.out.println("logout success");
+							roomManagerPage.getFrame().setVisible(false);
+							roomManagerPage.getFrame().dispose();
+						}else{
+							if(elements[1].equals("RoomPage")){
+								System.out.println("logout success");
+								roomPage.getFrame().setVisible(false);
+								roomPage.getFrame().dispose();
+							}
+						}
 						System.exit(0);
+						
 					}
 					break;
 				case "showRoomManagerPage":												
