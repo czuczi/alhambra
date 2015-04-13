@@ -1,9 +1,9 @@
 package View;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -12,9 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.JRadioButton;
-import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 
 import ClientPackage.Client;
@@ -41,39 +39,39 @@ public class GiftCards extends JFrame {
 	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		
-		frame.setContentPane(new JLabel(new ImageIcon("./resource/otherImages/background.jpg")));
+		frame.setContentPane(new JLabel(new ImageIcon((URL)this.getClass().getResource("/otherImages/background.jpg"))));
 		frame.getContentPane().setLayout(null);
 		
 		JLabel marketLabel = new JLabel();
 		marketLabel.setBounds(120, 100, 360, 135);
 	    frame.getContentPane().add(marketLabel);
 	    marketLabel.setOpaque(true);
-	    marketLabel.setIcon(new ImageIcon("./resource/otherImages/market.jpg"));
+	    marketLabel.setIcon(new ImageIcon((URL)this.getClass().getResource("/otherImages/market.jpg")));
 	    marketLabel.setLayout(null);
 		
 		JLabel jLabel1 = new JLabel("New label");
 		jLabel1.setBounds(30, 26, 75, 75);
 		marketLabel.add(jLabel1);
 		jLabel1.setOpaque(true);
-		jLabel1.setIcon(new ImageIcon("./resource/buildingCards/back.jpg"));
+		jLabel1.setIcon(new ImageIcon((URL)this.getClass().getResource("/buildingCards/back.jpg")));
 		
 		JLabel jLabel2 = new JLabel("New label");
 		jLabel2.setBounds(107, 26, 75, 75);
 		marketLabel.add(jLabel2);
 		jLabel2.setOpaque(true);
-		jLabel2.setIcon(new ImageIcon("./resource/buildingCards/back.jpg"));
+		jLabel2.setIcon(new ImageIcon((URL)this.getClass().getResource("/buildingCards/back.jpg")));
 		
 		JLabel jLabel3 = new JLabel("New label");
 		jLabel3.setBounds(184, 26, 75, 75);
 		marketLabel.add(jLabel3);
 		jLabel3.setOpaque(true);
-		jLabel3.setIcon(new ImageIcon("./resource/buildingCards/back.jpg"));
+		jLabel3.setIcon(new ImageIcon((URL)this.getClass().getResource("/buildingCards/back.jpg")));
 		
 		JLabel jLabel4 = new JLabel("New label");
 		jLabel4.setBounds(261, 26, 75, 75);
 		marketLabel.add(jLabel4);
 		jLabel4.setOpaque(true);
-		jLabel4.setIcon(new ImageIcon("./resource/buildingCards/back.jpg"));
+		jLabel4.setIcon(new ImageIcon((URL)this.getClass().getResource("/buildingCards/back.jpg")));
 		
 		jLabelList.add(jLabel1);
 		jLabelList.add(jLabel2);
@@ -111,7 +109,7 @@ public class GiftCards extends JFrame {
 	    bg.add(radioButtonMarket_4);
 	    
 	    JButton btnBuyBuildingCard = new JButton();
-	    btnBuyBuildingCard.setIcon(new ImageIcon("./resource/otherImages/buyButton.png"));
+	    btnBuyBuildingCard.setIcon(new ImageIcon((URL)this.getClass().getResource("/otherImages/buyButton.png")));
 	    btnBuyBuildingCard.setOpaque(false);
 	    btnBuyBuildingCard.setBounds(256, 245, 89, 89);
 	    btnBuyBuildingCard.addActionListener(new ActionListener() {
@@ -165,11 +163,11 @@ public class GiftCards extends JFrame {
 	
 	public void setBackGrounds(List<String> imageList){
 		for(int i=0; i < 4; i++){
-			jLabelList.get(i).setIcon(new ImageIcon("./resource/buildingCards/back.jpg"));
+			jLabelList.get(i).setIcon(new ImageIcon((URL)this.getClass().getResource("/buildingCards/back.jpg")));
 		}
 		
 		for(int i=0; i < imageList.size(); i++){
-			jLabelList.get(i).setIcon(new ImageIcon(imageList.get(i)));
+			jLabelList.get(i).setIcon(new ImageIcon((URL)this.getClass().getResource(imageList.get(i))));
 		}
 	}
 	

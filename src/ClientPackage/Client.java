@@ -4,8 +4,6 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.InetAddress;
-import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
@@ -80,7 +78,7 @@ public class Client {
 		Client client = new Client();
 
 		try {
-			client.serverSocket = new Socket("localhost", 9999);
+			client.serverSocket = new Socket("192.168.2.2", 9999);
 			try {
 				client.is = client.serverSocket.getInputStream();
 				client.bf = new BufferedReader(new InputStreamReader(client.is));
@@ -197,7 +195,6 @@ public class Client {
 						roomPage.getFrame().setVisible(false);
 						roomPage.getFrame().dispose();
 					}
-
 					client.sendMessage("amIActPlayer", client.getOs());
 					gameTablePage = new GameTablePage(client);
 					break;
@@ -232,7 +229,7 @@ public class Client {
 					String aktPic = "";
 					if(elements.length > 1){
 						for(int i=1; i<elements.length; i=i+2){
-							aktPic = "./resource/MoneyCards/"+elements[i]+"/"+elements[i+1]+"/image.jpg";
+							aktPic = "/MoneyCards/"+elements[i]+"/"+elements[i+1]+"/image.jpg";
 							myMoneyCardsPictures.add(aktPic);
 						}
 					}
@@ -246,7 +243,7 @@ public class Client {
 					String aktPictures = "";
 					if(elements.length > 1){
 						for(int i=1; i<elements.length; i=i+2){
-							aktPictures = "./resource/MoneyCards/"+elements[i]+"/"+elements[i+1]+"/image.jpg";
+							aktPictures = "/MoneyCards/"+elements[i]+"/"+elements[i+1]+"/image.jpg";
 							moneyPickerViewMoneyCardsPictures.add(aktPictures);
 						}
 						gameTablePage.moneyPickerCardBackgroundSetter(moneyPickerViewMoneyCardsPictures);
