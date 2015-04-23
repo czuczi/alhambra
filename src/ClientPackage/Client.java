@@ -78,7 +78,7 @@ public class Client {
 		Client client = new Client();
 
 		try {
-			client.serverSocket = new Socket("192.168.2.2", 9999);
+			client.serverSocket = new Socket("172.22.197.81", 9999);
 			try {
 				client.is = client.serverSocket.getInputStream();
 				client.bf = new BufferedReader(new InputStreamReader(client.is));
@@ -104,7 +104,7 @@ public class Client {
 				switch (client.serverRequest) {
 				case "showLoginPage":													
 					if(elements[1].equals("login")){									//LOGIN FAILED
-						JOptionPane.showMessageDialog(null, "Már van ilyen felahsználó!");
+						JOptionPane.showMessageDialog(null, "Már van ilyen felahsználó a rendszerben!", "Sikertelen bejelentkezés", 1);
 					} else{																//LOGOUT
 						if(elements[1].equals("RoomManagerPage")){
 							System.out.println("logout success");
@@ -128,10 +128,10 @@ public class Client {
 					} else{
 						if(elements[1].equals("RoomManagerPage")){						//CREATE NEW ROOM FAILED  OR JOIN ROOM FAILED
 							if(elements[2].equals("joinRoom")) {
-								JOptionPane.showMessageDialog(null, "A szoba megtelt!");
+								JOptionPane.showMessageDialog(null, "A szoba megtelt!", "Értesítés", 1);
 								break;
 							}
-							JOptionPane.showMessageDialog(null, "A név foglalt!");
+							JOptionPane.showMessageDialog(null, "A név foglalt!", "Értesítés", 1);
 							break;
 						} else{															//LEAVE ROOM
 							if(elements[1].equals("RoomPage")){

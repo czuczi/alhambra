@@ -45,7 +45,7 @@ public class FinalScorePage {
 		frame.setResizable(false);
 		frame.setBounds(400, 300, 600, 400);
 		frame.setContentPane(new JLabel(new ImageIcon("./resource/otherImages/backgroundScore.jpg")));
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblScore = new JLabel("Végső eredmény:");

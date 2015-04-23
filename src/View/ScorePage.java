@@ -43,7 +43,7 @@ public class ScorePage {
 		frame.setBounds(100, 100, 600, 400);
 		frame.setResizable(false);
 		frame.setContentPane(new JLabel(new ImageIcon("./resource/otherImages/backgroundScore.jpg")));
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblScore = new JLabel("A pillanatnyi állás:");

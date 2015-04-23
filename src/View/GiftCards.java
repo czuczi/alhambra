@@ -36,7 +36,7 @@ public class GiftCards extends JFrame {
 		frame = new JFrame("Ajándék kártyák");
 	    frame.setBounds(200, 20, 600, 400);
 	    frame.setResizable(false);
-	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	    frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		
 		
 		frame.setContentPane(new JLabel(new ImageIcon((URL)this.getClass().getResource("/otherImages/background.jpg"))));
