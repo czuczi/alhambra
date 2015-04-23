@@ -1,14 +1,18 @@
 package ClientPackage;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.ObjectInputStream.GetField;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
@@ -76,9 +80,29 @@ public class Client {
 	public static void main(String[] args) {
 
 		Client client = new Client();
+		FileReader fileReader = null;
+		Scanner scanner = null;
+		String serverIPAddress = "";
 
 		try {
-			client.serverSocket = new Socket("172.22.197.81", 9999);
+			fileReader = new FileReader(client.getClass().getResource("/Server.txt").getPath());
+			scanner = new Scanner(fileReader);
+		} catch (FileNotFoundException e1) {
+			e1.printStackTrace();
+		}
+		while(scanner.hasNextLine()){
+			serverIPAddress = scanner.nextLine();
+		}
+		scanner.close();
+		try {
+			fileReader.close();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		
+
+		try {
+			client.serverSocket = new Socket(serverIPAddress, 9999);
 			try {
 				client.is = client.serverSocket.getInputStream();
 				client.bf = new BufferedReader(new InputStreamReader(client.is));
